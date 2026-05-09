@@ -1,0 +1,630 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="ru" xmlns="http://www.w3.org/1993/xhtml" data-darkreader-mode="dynamic" data-darkreader-scheme="dark"><head id="Head1"><style class="darkreader darkreader--fallback" media="screen"></style><style class="darkreader darkreader--user-agent" media="screen">@layer {
+html {
+    background-color: var(--darkreader-background-ffffff, #181a1b) !important;
+}
+html {
+    color-scheme: dark !important;
+}
+iframe {
+    color-scheme: dark !important;
+}
+html, body {
+    background-color: var(--darkreader-background-ffffff, #181a1b);
+}
+html, body {
+    border-color: var(--darkreader-border-4c4c4c, #736b5e);
+    color: var(--darkreader-text-000000, #e8e6e3);
+}
+a {
+    color: var(--darkreader-text-0040ff, #3391ff);
+}
+table {
+    border-color: var(--darkreader-border-808080, #545b5e);
+}
+mark {
+    color: var(--darkreader-text-000000, #e8e6e3);
+}
+::placeholder {
+    color: var(--darkreader-text-a9a9a9, #b2aba1);
+}
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+    background-color: var(--darkreader-background-faffbd, #404400) !important;
+    color: var(--darkreader-text-000000, #e8e6e3) !important;
+}
+::selection {
+    background-color: var(--darkreader-background-0060d4, #004daa) !important;
+    color: var(--darkreader-text-ffffff, #e8e6e3) !important;
+}
+::-moz-selection {
+    background-color: var(--darkreader-background-0060d4, #004daa) !important;
+    color: var(--darkreader-text-ffffff, #e8e6e3) !important;
+}
+}</style><style class="darkreader darkreader--text" media="screen"></style><style class="darkreader darkreader--invert" media="screen">.jfk-bubble.gtx-bubble, .captcheck_answer_label > input + img, span#closed_text > img[src^="https://www.gstatic.com/images/branding/googlelogo"], span[data-href^="https://www.hcaptcha.com/"] > #icon, img.Wirisformula, a[data-testid="headerMediumLogo"]>svg, .d2l-navigation-link-image-container, .d2l-iframe-loading-container, div.mc-ip-hide[style*="background: rgb(255, 255, 255) !important"], [style*="color: rgb(0, 0, 1) !important;"] {
+    filter: invert(100%) hue-rotate(180deg) contrast(90%) !important;
+}</style><style class="darkreader darkreader--inline" media="screen">[data-darkreader-inline-bgcolor] {
+  background-color: var(--darkreader-inline-bgcolor) !important;
+}
+[data-darkreader-inline-bgimage] {
+  background-image: var(--darkreader-inline-bgimage) !important;
+}
+[data-darkreader-inline-border] {
+  border-color: var(--darkreader-inline-border) !important;
+}
+[data-darkreader-inline-border-bottom] {
+  border-bottom-color: var(--darkreader-inline-border-bottom) !important;
+}
+[data-darkreader-inline-border-left] {
+  border-left-color: var(--darkreader-inline-border-left) !important;
+}
+[data-darkreader-inline-border-right] {
+  border-right-color: var(--darkreader-inline-border-right) !important;
+}
+[data-darkreader-inline-border-top] {
+  border-top-color: var(--darkreader-inline-border-top) !important;
+}
+[data-darkreader-inline-boxshadow] {
+  box-shadow: var(--darkreader-inline-boxshadow) !important;
+}
+[data-darkreader-inline-color] {
+  color: var(--darkreader-inline-color) !important;
+}
+[data-darkreader-inline-fill] {
+  fill: var(--darkreader-inline-fill) !important;
+}
+[data-darkreader-inline-stroke] {
+  stroke: var(--darkreader-inline-stroke) !important;
+}
+[data-darkreader-inline-outline] {
+  outline-color: var(--darkreader-inline-outline) !important;
+}
+[data-darkreader-inline-stopcolor] {
+  stop-color: var(--darkreader-inline-stopcolor) !important;
+}
+[data-darkreader-inline-bg] {
+  background: var(--darkreader-inline-bg) !important;
+}
+[data-darkreader-inline-border-short] {
+  border: var(--darkreader-inline-border-short) !important;
+}
+[data-darkreader-inline-border-bottom-short] {
+  border-bottom: var(--darkreader-inline-border-bottom-short) !important;
+}
+[data-darkreader-inline-border-left-short] {
+  border-left: var(--darkreader-inline-border-left-short) !important;
+}
+[data-darkreader-inline-border-right-short] {
+  border-right: var(--darkreader-inline-border-right-short) !important;
+}
+[data-darkreader-inline-border-top-short] {
+  border-top: var(--darkreader-inline-border-top-short) !important;
+}
+[data-darkreader-inline-invert] {
+    filter: invert(100%) hue-rotate(180deg);
+}</style><style class="darkreader darkreader--variables" media="screen">:root {
+   --darkreader-neutral-background: var(--darkreader-background-ffffff, #181a1b);
+   --darkreader-neutral-text: var(--darkreader-text-000000, #e8e6e3);
+   --darkreader-selection-background: var(--darkreader-background-0060d4, #004daa);
+   --darkreader-selection-text: var(--darkreader-text-ffffff, #e8e6e3);
+}</style><style class="darkreader darkreader--root-vars" media="screen"></style>
+<script async="" src="Chess-Results%20Server%20Chess-results.com%20-%202026-3-%D0%B8%D0%B9%20%D0%AD%D1%82%D0%B0%D0%BF%20%D0%9A%D0%A3%D0%B1%D0%BA%D0%B0%20%D0%BA%D1%80%D0%B0%D1%8F%20%D0%BF%D0%B0%D0%BC%D1%8F%D1%82%D0%B8%20%D0%90.%D0%97.%D0%91%D0%BE%D1%80%D0%BE%D0%B2%D0%B8%D0%BA%D0%B0-C_files/fuse.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="Chess-Results.com is a powerful and dedicated server only for chess-results. The tournament archive of chess-results.com contains more than 40.000 tournaments from around the world." name="description">
+<meta content="Chess tournament, Chess, Herzog, Heinz, Heinz Herzog, Swiss-Manager, Chesspairing, chess results, chess championship, European chess championship, FIDE, Chess International, chess calendar, Chess Austria, rating, PGN, chess games" name="keywords">
+<meta content="Dipl.Ing. Heinz Herzog - https://chess-results.com" name="author">
+<meta content="Dipl.Ing. Heinz Herzog" name="publisher">
+<meta content="Sport" name="page-topic">
+<meta content="Webdesign Dipl.Ing. Heinz Herzog - https://chess-results.com" name="copyright">
+<meta name="robots" content="index, nofollow">
+<style type="text/css"><!-- 
+body { font-size: 11pt; } 
+div.fed { width:37px; }
+.Daten { width:820px; }
+ --></style><style class="darkreader darkreader--sync" media="screen"></style><link href="Chess-Results%20Server%20Chess-results.com%20-%202026-3-%D0%B8%D0%B9%20%D0%AD%D1%82%D0%B0%D0%BF%20%D0%9A%D0%A3%D0%B1%D0%BA%D0%B0%20%D0%BA%D1%80%D0%B0%D1%8F%20%D0%BF%D0%B0%D0%BC%D1%8F%D1%82%D0%B8%20%D0%90.%D0%97.%D0%91%D0%BE%D1%80%D0%BE%D0%B2%D0%B8%D0%BA%D0%B0-C_files/StylesD.css" type="text/css" rel="stylesheet"><style class="darkreader darkreader--sync" media="screen"></style><link rel="icon" type="image/x-icon" href="https://s1.chess-results.com/images/Icon_32x32.png"><meta http-equiv="content-type" content="text/html; charset=UTF-8"><title>
+	Chess-Results Server Chess-results.com - 2026-3-ий Этап КУбка края памяти А.З.Боровика-C
+</title><meta name="darkreader" content="1c658ffb91404977805f7ab3b063eb03"><style class="darkreader darkreader--override" media="screen">.vimvixen-hint {
+    background-color: var(--darkreader-background-ffd76e, #684b00) !important;
+    border-color: var(--darkreader-background-c59d00, #9e7e00) !important;
+    color: var(--darkreader-text-302505, #d7d4cf) !important;
+}
+#vimvixen-console-frame {
+    color-scheme: light !important;
+}
+::placeholder {
+    opacity: 0.5 !important;
+}
+#edge-translate-panel-body,
+.MuiTypography-body1,
+.nfe-quote-text {
+    color: var(--darkreader-neutral-text) !important;
+}
+gr-main-header {
+    background-color: var(--darkreader-background-add8e6, #1b4958) !important;
+}
+.tou-z65h9k,
+.tou-mignzq,
+.tou-1b6i2ox,
+.tou-lnqlqk {
+    background-color: var(--darkreader-neutral-background) !important;
+}
+.tou-75mvi {
+    background-color: var(--darkreader-background-cfecf5, #0f3a47) !important;
+}
+.tou-ta9e87,
+.tou-1w3fhi0,
+.tou-1b8t2us,
+.tou-py7lfi,
+.tou-1lpmd9d,
+.tou-1frrtv8,
+.tou-17ezmgn {
+    background-color: var(--darkreader-background-f5f5f5, #1e2021) !important;
+}
+.tou-uknfeu {
+    background-color: var(--darkreader-background-faedda, #432c09) !important;
+}
+.tou-6i3zyv {
+    background-color: var(--darkreader-background-85c3d8, #245d70) !important;
+}
+div.mermaid-viewer-control-panel .btn {
+    background-color: var(--darkreader-neutral-background);
+    fill: var(--darkreader-neutral-text);
+}
+svg g rect.er {
+    fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.er.entityBox {
+    fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.er.attributeBoxOdd {
+    fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.er.attributeBoxEven {
+    fill: var(--darkreader-selection-background);
+    fill-opacity: 0.8 !important;
+}
+svg rect.er.relationshipLabelBox {
+    fill: var(--darkreader-neutral-background) !important;
+}
+svg g g.nodes rect,
+svg g g.nodes polygon {
+    fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.task {
+    fill: var(--darkreader-selection-background) !important;
+}
+svg line.messageLine0,
+svg line.messageLine1 {
+    stroke: var(--darkreader-neutral-text) !important;
+}
+div.mermaid .actor {
+    fill: var(--darkreader-neutral-background) !important;
+}
+mitid-authenticators-code-app > .code-app-container {
+    background-color: white !important;
+    padding-top: 1rem;
+}
+iframe#unpaywall[src$="unpaywall.html"] {
+    color-scheme: light !important;
+}
+select {
+    --darkreader-bg--form-control-background-color: rgba(22, 22, 22, 0) !important;
+}
+body#tumblr {
+    --darkreader-bg--secondary-accent: 31, 32, 34 !important;
+    --darkreader-bg--white: 23, 23, 23 !important;
+    --darkreader-text--black: 228, 224, 218 !important;
+}
+:host {
+    --d2l-border-color: var(--darkreader-bg--d2l-color-gypsum) !important;
+    --d2l-button-icon-background-color-hover: var(--darkreader-bg--d2l-color-gypsum) !important;
+    --d2l-color-ferrite: var(--darkreader-neutral-text) !important;
+    --d2l-color-sylvite: var(--darkreader-bg--d2l-color-sylvite) !important;
+    --d2l-dropdown-background-color: var(--darkreader-neutral-background) !important;
+    --d2l-dropdown-border-color: var(--darkreader-border--d2l-color-mica) !important;
+    --d2l-input-backgroud-color: var(--darkreader-neutral-background) !important;
+    --d2l-menu-border-color: var(--darkreader-bg--d2l-color-gypsum) !important;
+    --d2l-tooltip-background-color: var(--darkreader-neutral-background) !important;
+    --d2l-tooltip-border-color: var(--darkreader-bg--d2l-color-gypsum) !important;
+}
+:host([_floating]) .d2l-floating-buttons-container {
+    background-color: var(--darkreader-neutral-background) !important;
+    border-top-color: var(--darkreader-border--d2l-color-mica) !important;
+    opacity: 0.88 !important;
+}
+d2l-card {
+    background: var(--darkreader-neutral-background) !important;
+    border-color: var(--darkreader-border--d2l-color-gypsum) !important;
+}
+d2l-dropdown-content > div,
+d2l-menu-item {
+    background-color: var(--darkreader-neutral-background) !important;
+    border-radius: 10px !important;
+}
+d2l-empty-state-simple {
+    border-color: var(--darkreader-bg--d2l-color-gypsum) !important;
+}
+.d2l-button-filter > ul > li > a.vui-button {
+    border-color: var(--darkreader-border--d2l-color-mica) !important;
+}
+.d2l-label-text:has(.d2l-button-subtle-content):hover,
+.d2l-label-text:has(.d2l-button-subtle-content):focus,
+.d2l-label-text:has(.d2l-button-subtle-content):active {
+    background-color: var(--darkreader-bg--d2l-color-gypsum) !important;
+}
+.d2l-navigation-centerer {
+    color: inherit !important;
+}
+.d2l-tabs-layout {
+    border-color: var(--darkreader-border--d2l-color-gypsum) !important;
+}
+.d2l-input,
+.d2l-calendar-date,
+.d2l-htmleditor-container {
+    background-color: var(--darkreader-neutral-background) !important;
+}
+.d2l-collapsible-panel {
+    border: 1px solid var(--darkreader-border--d2l-color-mica) !important;
+    border-radius: 0.4rem !important;
+}
+.d2l-collapsible-panel-divider {
+    border-bottom: 1px solid var(--darkreader-border--d2l-color-mica) !important;
+}
+.d2l-w2d-flex {
+    border-bottom: 2px solid var(--darkreader-border--d2l-color-mica) !important;
+}
+.d2l-collapsible-panel scrolled,
+.d2l-collapsible-panel-header,
+.d2l-w2d-collection-fixed {
+    background-color: var(--darkreader-neutral-background) !important;
+}
+.d2l-loading-spinner-bg {
+    fill: var(--darkreader-bg--d2l-color-gypsum) !important;
+}
+.d2l-loading-spinner-bg-stroke {
+    stroke: var(--darkreader-border--d2l-color-mica) !important;
+}
+.d2l-loading-spinner-wrapper svg path,
+.d2l-loading-spinner-wrapper svg circle {
+    fill: var(--darkreader-neutral-background) !important;
+}
+.d2l-twopanelselector-side.d2l-twopanelselector-side-sep {
+    background: var(--darkreader-bg--d2l-color-mica) !important;
+}
+.d2l-le-TreeAccordionItem-anchor::before {
+    background: var(--darkreader-bg--d2l-color-corundum) !important;
+}
+table[class|="moz-header"] {
+    background: none;
+}
+*[style*="color: rgba(0,0,0,"],
+*[style*="color: rgba(0, 0, 0,"],
+*[style*="color:#000"],
+*[style*="color:black"],
+*[style*="color:#282828"],
+*[style*="color:#444"] {
+    color: var(--darkreader-neutral-text) !important;
+}
+*[style*="background:#fff"],
+*[style*="background-color:#fff"] {
+    background: var(--darkreader-neutral-background) !important;
+}
+*[bgcolor="#F5F5F5"],
+*[style*="background-color: #F5F5F5"] {
+    background: var(--darkreader-background-f5f5f5, #1e2021) !important;
+}
+body[style*="background: rgb(255, 255, 255) !important"] *:not(a),
+.body[style*="background-color: rgb(254, 254, 254) !important"] *:not(a) {
+    background-color: var(--darkreader-neutral-background) !important;
+}
+div[style*="www.gstatic.com/android/"] {
+    background: none !important;
+}
+*[style*="background:#f9f9f9"] {
+    background: var(--darkreader-background-f9f9f9, #1b1e1f) !important;
+}
+body.mediawiki.skin-vector #mw-page-base {
+    background-image: none !important;
+}
+embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }</style></head>
+<body>
+		
+<form method="post" action="./tnr1393466.aspx?tno=1393466" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKLTYyNDM3NzQzNw9kFgJmD2QWBAIBDxYCHgRUZXh0BQJydWQCCQ9kFgICAQ9kFgxmDxYCHgdWaXNpYmxlZxYCZg9kFgICAw8WAh4Fc3R5bGUFRFdJRFRIOjEwMDBweDtIRUlHSFQ6OTdweDtwb3NpdGlvbjpyZWxhdGl2ZTtiYWNrZ3JvdW5kLWNvbG9yOiMzMzQxNjY7FgQCAQ8WAh8CBStXSURUSDoxMDAwcHg7SEVJR0hUOjk3cHg7cG9zaXRpb246cmVsYXRpdmU7FgICAQ8WAh8CBTVXSURUSDo3MjhweDtIRUlHSFQ6OTdweDtsZWZ0OjI3MnB4O3Bvc2l0aW9uOmFic29sdXRlO2QCAw8WAh4Dc3JjBSNpbWFnZXMvY2hlc3NSZXN1bHRzX0VOR18xMDAweDkwLmpwZ2QCBA8WAh8BZxYCZg9kFgQCAQ8WAh4JaW5uZXJodG1sBQ9Mb2dnZWQgb246IEdhc3RkAgMPFgIfBAUeU2VydmVydGltZSAwOS4wNS4yMDI2IDE3OjI1OjM0ZAIFDxYCHwFnZAIGDxYCHwFnZAIIDxYCHwFoZAILD2QWAmYPZBYCAgMPZBYCZg9kFgJmDxYCHgV3aWR0aAUDODM0FgICAQ8WAh8CBTpQQURESU5HOjBweCAwcHggMHB4IDJweDtGTE9BVDpsZWZ0O01BUkdJTjowcHg7V0lEVEg6ODM0cHg7FgICAQ9kFgICAw9kFgQCAQ88KwARAgEQFgAWABYADBQrAABkAgMPPCsAEQIBEBYAFgAWAAwUKwAAZBgCBRJjdGwwMCRQMSRHcmlkVmlldzIPZ2QFEmN0bDAwJFAxJEdyaWRWaWV3MQ9nZOQRv+XKlaszz4WsM+WSOYfjtk2w3Uh33zGigDuZXzLY">
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="D5991272">
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAJzSCR9A/SiqeSeC+CREJkeolKyfaSroikh4PwByU0fhkegz7nBk6mQH2EPA1vPdXnN3xGHeYy7bJXSx6R2gNiY">
+</div>
+<table id="kopfvisible" class="daten" cellspacing="0" cellpadding="0" border="0" width="1000">
+	<tbody><tr>
+		<td class="CR0">
+ 
+
+<div id="kopf" style="width: 1000px; height: 97px; position: relative; background-color: rgb(51, 65, 102); --darkreader-inline-bgcolor: var(--darkreader-background-334166, #293452);" data-darkreader-inline-bgcolor="">
+<div id="Div1" class="daten" style="WIDTH:1000px;HEIGHT:97px;position:relative;">
+ <div id="Div2" style="WIDTH:728px;HEIGHT:97px;left:272px;position:absolute;">
+
+ </div>
+</div>
+
+ <div style="top:0px;left:0px; position:absolute;">
+   <img src="Chess-Results%20Server%20Chess-results.com%20-%202026-3-%D0%B8%D0%B9%20%D0%AD%D1%82%D0%B0%D0%BF%20%D0%9A%D0%A3%D0%B1%D0%BA%D0%B0%20%D0%BA%D1%80%D0%B0%D1%8F%20%D0%BF%D0%B0%D0%BC%D1%8F%D1%82%D0%B8%20%D0%90.%D0%97.%D0%91%D0%BE%D1%80%D0%BE%D0%B2%D0%B8%D0%BA%D0%B0-C_files/chessResults_ENG_1000x90.jpg" id="Image_kopfLogo" alt="Chess-Results Logo">
+ </div>
+ <div style="top:0px; position:absolute;">
+  <table id="Table3" class="daten" cellspacing="0" cellpadding="0" border="0" width="1000">
+			<tbody><tr>
+				<td onclick="DoNav('Default.aspx');" onmouseover="this.style.cursor='pointer'" valign="top" class="CR0" width="261"></td>
+				<td class="CR0" width="10"></td>
+				<td class="CR0" width="729" align="left">
+     
+<div data-fuse="result_header"></div>
+
+    </td>
+			</tr>
+		</tbody></table>
+		
+ </div>
+</div>
+
+	 </td>
+	</tr>
+	<tr>
+		<td>
+   
+   </td>
+	</tr>
+	<tr>
+		<td class="CR0">
+	 <div id="menu0" style="WIDTH: 1000px">
+     <ul class="navlist">
+			<li><div id="l_user" class="userinfo">Logged on: Gast</div></li>
+			<li style="FLOAT: right"><div id="l_uinfo" class="userinfo">Servertime 09.05.2026 17:25:34</div></li>
+     </ul>
+   </div>
+	 </td>
+	</tr>
+	<tr>
+		<td class="CR0">
+	 <div id="menu0L" style="WIDTH: 1000px">
+     <ul class="navlist">
+			<li style="FLOAT: right"><a id="h_logout" class="OtherTabs" href="https://s1.chess-results.com/Default.aspx?id=60061" style="display:inline-block;height:12px;">Logout</a></li>
+			<li style="FLOAT: right"><a id="h_login" class="OtherTabs" href="https://s1.chess-results.com/Login.aspx?xx=0" style="display:inline-block;height:12px;">Login</a></li>
+	<li style="FLOAT: right"></li>
+	<li style="FLOAT: right"></li>
+      <li><a id="Hyp_EGY" class="OtherTabs" href="https://s1.chess-results.com/Default.aspx?lan=35" style="display:inline-block;height:12px;">Arabic</a></li>
+      <li><a id="Hyp_ARM" class="OtherTabs" href="https://s1.chess-results.com/Default.aspx?lan=28" style="display:inline-block;height:12px;">ARM</a></li>
+      <li><a id="Hyp_AZE" class="OtherTabs" href="https://s1.chess-results.com/Default.aspx?lan=34" style="display:inline-block;height:12px;">AZE</a></li>
+      <li><a id="Hyp_BIH" class="OtherTabs" href="https://s1.chess-results.com/Default.aspx?lan=15" style="display:inline-block;height:12px;">BIH</a></li>
+      <li><a id="Hyp_BUL" class="OtherTabs" href="https://s1.chess-results.com/Default.aspx?lan=24" style="display:inline-block;height:12px;">BUL</a></li>
+      <li><a id="Hyp_CAT" class="OtherTabs" href="https://s1.chess-results.com/Default.aspx?lan=9" style="display:inline-block;height:12px;">CAT</a></li>
+      <li><a id="Hyp_CHN" class="OtherTabs" href="https://s1.chess-results.com/Default.aspx?lan=33" style="display:inline-block;height:12px;">CHN</a></li>
+      <li><a id="Hyp_CRO" class="OtherTabs" href="https://s1.chess-results.com/Default.aspx?lan=13" style="display:inline-block;height:12px;">CRO</a></li>
+      <li><a id="Hyp_CZE" class="OtherTabs" href="https://s1.chess-results.com/Default.aspx?lan=5" style="display:inline-block;height:12px;">CZE</a></li>
+      <li><a id="Hyp_DEN" class="OtherTabs" href="https://s1.chess-results.com/Default.aspx?lan=32" style="display:inline-block;height:12px;">DEN</a></li>
+      <li><a id="Hyp_ENG" class="OtherTabs" href="https://s1.chess-results.com/Default.aspx?lan=1" style="display:inline-block;height:12px;">ENG</a></li>
+      <li><a id="Hyp_ESP" class="OtherTabs" href="https://s1.chess-results.com/Default.aspx?lan=2" style="display:inline-block;height:12px;">ESP</a></li>
+      <li></li>
+      <li><a id="Hyp_FAI" class="OtherTabs" href="https://s1.chess-results.com/Default.aspx?lan=7" style="display:inline-block;height:12px;">FAI</a></li>
+      <li><a id="Hyp_FIN" class="OtherTabs" href="https://s1.chess-results.com/Default.aspx?lan=18" style="display:inline-block;height:12px;">FIN</a></li>
+      <li><a id="Hyp_FRA" class="OtherTabs" href="https://s1.chess-results.com/Default.aspx?lan=20" style="display:inline-block;height:12px;">FRA</a></li>
+      <li><a id="Hyp_GER" class="OtherTabs" href="https://s1.chess-results.com/Default.aspx?lan=0" style="display:inline-block;height:12px;">GER</a></li>
+      <li><a id="Hyp_GRE" class="OtherTabs" href="https://s1.chess-results.com/Default.aspx?lan=19" style="display:inline-block;height:12px;">GRE</a></li>
+      <li><a id="Hyp_INA" class="OtherTabs" href="https://s1.chess-results.com/Default.aspx?lan=26" style="display:inline-block;height:12px;">INA</a></li>
+      <li></li>
+      <li><a id="Hyp_ITA" class="OtherTabs" href="https://s1.chess-results.com/Default.aspx?lan=16" style="display:inline-block;height:12px;">ITA</a></li>
+      <li><a id="Hyp_JPN" class="OtherTabs" href="https://s1.chess-results.com/Default.aspx?lan=22" style="display:inline-block;height:12px;">JPN</a></li>
+      <li><a id="Hyp_MKD" class="OtherTabs" href="https://s1.chess-results.com/Default.aspx?lan=21" style="display:inline-block;height:12px;">MKD</a></li>
+      <li><a id="Hyp_LTU" class="OtherTabs" href="https://s1.chess-results.com/Default.aspx?lan=30" style="display:inline-block;height:12px;">LTU</a></li>
+      <li><a id="Hyp_NED" class="OtherTabs" href="https://s1.chess-results.com/Default.aspx?lan=17" style="display:inline-block;height:12px;">NED</a></li>
+      <li><a id="Hyp_POL" class="OtherTabs" href="https://s1.chess-results.com/Default.aspx?lan=3" style="display:inline-block;height:12px;">POL</a></li>
+      <li><a id="Hyp_POR" class="OtherTabs" href="https://s1.chess-results.com/Default.aspx?lan=10" style="display:inline-block;height:12px;">POR</a></li>
+      <li><a id="Hyp_ROU" class="OtherTabs" href="https://s1.chess-results.com/Default.aspx?lan=27" style="display:inline-block;height:12px;">ROU</a></li>
+      <li><a id="Hyp_RUS" class="SelectedTab" href="https://s1.chess-results.com/Default.aspx?lan=11" style="display:inline-block;height:12px;">RUS</a></li>
+      <li><a id="Hyp_SRB" class="OtherTabs" href="https://s1.chess-results.com/Default.aspx?lan=14" style="display:inline-block;height:12px;">SRB</a></li>
+      <li><a id="Hyp_SVK" class="OtherTabs" href="https://s1.chess-results.com/Default.aspx?lan=4" style="display:inline-block;height:12px;">SVK</a></li>
+      <li><a id="Hyp_SWE" class="OtherTabs" href="https://s1.chess-results.com/Default.aspx?lan=6" style="display:inline-block;height:12px;">SWE</a></li>
+      <li><a id="Hyp_TUR" class="OtherTabs" href="https://s1.chess-results.com/Default.aspx?lan=8" style="display:inline-block;height:12px;">TUR</a></li>
+      <li><a id="Hyp_UKR" class="OtherTabs" href="https://s1.chess-results.com/Default.aspx?lan=12" style="display:inline-block;height:12px;">UKR</a></li>
+      <li><a id="Hyp_VIE" class="OtherTabs" href="https://s1.chess-results.com/Default.aspx?lan=29" style="display:inline-block;height:12px;">VIE</a></li>
+      <li><a id="Hyp_Font" class="OtherTabs" href="https://s1.chess-results.com/Default.aspx?id=123" style="display:inline-block;height:12px;">FontSize:11pt</a></li>
+     </ul>
+   </div>
+	 </td>
+	</tr>
+	<tr>
+		<td class="CR0">
+	 <div id="menu1" style="WIDTH: 1000px">
+     <ul class="navlist">
+      <li><a id="H_HOME" class="OtherTabs" href="https://s1.chess-results.com/Default.aspx?lan=11" style="display:inline-block;height:19px;">Главная </a></li>
+      <li><a id="H_TurnierDB" class="OtherTabs" href="https://s1.chess-results.com/TurnierDB.aspx?lan=11" style="display:inline-block;height:19px;">Турнирная база данных </a></li>
+      <li><a id="H_Meisterschaft" class="OtherTabs" href="https://s1.chess-results.com/meisterschaft.aspx?lan=11&amp;jahr=2025" style="display:inline-block;height:19px;">AUT </a></li>
+      <li><a id="H_Fotos" class="OtherTabs" href="https://s1.chess-results.com/Fotos.aspx?lan=11" style="display:inline-block;height:19px;">Фото</a></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li><a id="H_Forum" class="OtherTabs" href="https://s1.chess-results.com/FAQ.aspx?lan=11" style="display:inline-block;height:19px;">ЧАВО</a></li>
+      <li><a id="H_Anmeldung" class="OtherTabs" href="https://s1.chess-results.com/AnmeldungSpez.aspx?lan=11&amp;art=1" style="display:inline-block;height:19px;">Онлайн Регистрация</a></li>
+      <li><a id="H_SM" class="Link" href="https://swiss-manager.at/" target="_blank" style="display:inline-block;height:19px;">Swiss-Manager</a></li>
+      <li><a id="H_OESB" class="Link" href="https://www.chess.at/" target="_blank" style="display:inline-block;height:19px;">ÖSB</a></li>
+      <li></li>
+      <li><a id="H_FIDE" class="Link" href="https://www.fide.com/" target="_blank" style="display:inline-block;height:19px;">FIDE</a></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+     </ul>
+   </div>
+	 </td>
+	</tr>
+	<tr>
+		<td class="CR0">
+	 <div id="P_ImpMessage" class="info"></div>
+	 
+	 
+	 
+   </td>
+	</tr>
+	<tr>
+		<td class="CR0">
+  
+
+
+   <div>
+
+<table id="datenxx" cellspacing="0" cellpadding="0" border="0">
+			<tbody><tr valign="top">
+				<td width="834" class="CR0grau">
+  <div id="F7" class="F7" style="PADDING:0px 0px 0px 2px;FLOAT:left;MARGIN:0px;WIDTH:834px;">
+    
+
+<div id="P1_Panel_Grid" class="defaultDialog_ohne_Rand" style="POSITION: relative; left: 0px; top: 0px; width: 620px;">
+     
+     
+</div>
+
+<div class="defaultDialog" style="width: 821px; clear:both;"><h2>2026-3-ий Этап КУбка края памяти А.З.Боровика-C </h2><p class="CRsmall">Последнее обновление26.04.2026 06:02:14, Автор/Последняя загрузка: Dvchess</p>
+<table border="0" cellpadding="1" cellspacing="1" width="821">
+<tbody><tr valign="top"><td class="CRnowrap b">Выбор турнира</td><td class="CR"><a href="https://chess-results.com/tnr1394081.aspx?lan=11&amp;art=0">1993 и старше</a>, <a href="https://chess-results.com/tnr1393454.aspx?lan=11&amp;art=0">1994-1991</a>, <i><b>1992 i molozhe</b></i></td></tr>
+<tr valign="top"><td class="CRnowrap b">Выбор параметров</td><td class="CR"> <a href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;turdet=YES">Отобразить дополнительную информацию</a>, <a href="https://s1.chess-results.com/CalendarLink.aspx?lan=11&amp;tnr=1393466">Ссылка на  турнирный календарь</a></td></tr>
+<tr valign="top"><td class="CRnowrap b">Списки</td><td class="CR"><i><b>Стартовый список</b></i>, <a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=3">Список игроков по алфавиту</a>, <a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=13">Статистика</a>, <a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=79">Список по алфавиту всех групп</a>, <a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=14">Расписание</a></td></tr>
+<tr><td></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=4">Итоговое положение после 9 туров</a>, <a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=5">Стартовая таблица участников</a></td></tr>
+<tr valign="top"><td class="CRnowrap b">Пары по доскам</td><td class="CR"><a href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=2&amp;rd=1">Тур1</a>, <a href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=2&amp;rd=2">Тур2</a>, <a href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=2&amp;rd=3">Тур3</a>, <a href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=2&amp;rd=4">Тур4</a>, <a href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=2&amp;rd=5">Тур5</a>, <a href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=2&amp;rd=6">Тур6</a>, <a href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=2&amp;rd=7">Тур7</a>, <a href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=2&amp;rd=8">Тур8</a>, <a href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=2&amp;rd=9">Тур9/9</a> , <a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=40">без пары</a></td></tr>
+<tr valign="top"><td class="CRnowrap b">Положение после</td><td class="CR"><a href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=1&amp;rd=1">Тур1</a>, <a href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=1&amp;rd=2">Тур2</a>, <a href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=1&amp;rd=3">Тур3</a>, <a href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=1&amp;rd=4">Тур4</a>, <a href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=1&amp;rd=5">Тур5</a>, <a href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=1&amp;rd=6">Тур6</a>, <a href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=1&amp;rd=7">Тур7</a>, <a href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=1&amp;rd=8">Тур8</a>, <a href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=1&amp;rd=9">Тур9</a></td></tr>
+<tr valign="top"><td class="CRnowrap b">Excel и  Печать</td><td class="CR"><a href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;zeilen=0&amp;prt=4&amp;excel=1992" target="_blank">Экспорт в  Excel (.xlsx)</a>, <a href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;zeilen=0&amp;prt=5" target="_blank">Экспорт в  PDF-файл</a>, <a href="https://s1.chess-results.com/QRCodes.aspx?lan=11&amp;code=Init&amp;tnr=1393466">QR-Codes</a></td></tr>
+</tbody></table>
+</div><div class="defaultDialog" style="width: 821px; height:28px; POSITION:relative; clear:both;">
+<span id="l_such_label" class="CRLabel" style="Z-INDEX:107;LEFT:18px;POSITION:absolute;TOP:4px;width:250px;">Search for player</span>
+<input name="txt_name" type="text" maxlength="30" id="txt_name" class="CRText" style="width:150px;z-index:118;left:280px;position:absolute;top:4px;">
+<a id="Link_Suche" class="CRLink" href="javascript:__doPostBack('Link_Suche','')" style="display:inline-block;width:100px;left:470px;position:absolute;top:4px;">Поиск</a>
+</div>
+<div class="defaultDialog" style="width: 821px; clear:both;"><h2>Стартовый список</h2>
+<table class="CRs1" border="0" cellpadding="1" cellspacing="1">
+<tbody><tr class="CRg1b"><th class="CRc">Ном.</th><th class="CR"></th><th class="CR">Имя</th><th class="CRr">код FIDE</th><th class="CR">ФЕД.</th><th class="CRr">Рейт.</th><th class="CR">Клуб/Город</th></tr>
+<tr class="CRg2 RUS"><td class="CRc">1</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=1">Иванов, Иван Иванович</a></td><td></td><td class="CR">RUS</td><td class="CRr">1636</td><td class="CR">Приморский край</td></tr>
+<tr class="CRg1 RUS"><td class="CRc">2</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=2">Сидоров, Сидор Сидорович</a></td><td></td><td class="CR">RUS</td><td class="CRr">1608</td><td class="CR">Приморский край</td></tr>
+<tr class="CRg2 RUS"><td class="CRc">3</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=3">Кузнецов, Алексей Сергеевич</a></td><td></td><td class="CR">RUS</td><td class="CRr">1595</td><td class="CR">Приморский край</td></tr>
+<tr class="CRg1 RUS"><td class="CRc">4</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=4">Попов, Максим Викторович</a></td><td></td><td class="CR">RUS</td><td class="CRr">1579</td><td class="CR">Приморский край</td></tr>
+<tr class="CRg2 RUS"><td class="CRc">5</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=5">Смирнова, Анна Дмитриевна</a></td><td><a href="http://ratings.fide.com/profile/540051170" target="_blank">540051170</a></td><td class="CR">RUS</td><td class="CRr">1527</td><td class="CR">Приморский край</td></tr>
+<tr class="CRg1 RUS"><td class="CRc">6</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=6">Васильев, Даниил Андреевич</a></td><td></td><td class="CR">RUS</td><td class="CRr">1448</td><td class="CR">Приморский край</td></tr>
+<tr class="CRg2 RUS"><td class="CRc">7</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=7">Михайлов, Артём Евгеньевич</a></td><td></td><td class="CR">RUS</td><td class="CRr">1446</td><td class="CR">Приморский край</td></tr>
+<tr class="CRg1 RUS"><td class="CRc">8</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=8">Новиков, Илья Олегович</a></td><td></td><td class="CR">RUS</td><td class="CRr">1415</td><td class="CR">Приморский край</td></tr>
+<tr class="CRg2 RUS"><td class="CRc">9</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=9">Соколов, Артем Игоревич</a></td><td></td><td class="CR">RUS</td><td class="CRr">1397</td><td class="CR">Приморский край</td></tr>
+<tr class="CRg1 RUS"><td class="CRc">10</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=10">Морозов, Семен Максимович</a></td><td></td><td class="CR">RUS</td><td class="CRr">1387</td><td class="CR">Приморский край</td></tr>
+<tr class="CRg2 RUS"><td class="CRc">11</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=11">Воробьев, Михаил Сергеевич</a></td><td></td><td class="CR">RUS</td><td class="CRr">1376</td><td class="CR">Приморский край</td></tr>
+<tr class="CRg1 RUS"><td class="CRc">12</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=12">Волков, Иван Алексеевич</a></td><td></td><td class="CR">RUS</td><td class="CRr">1368</td><td class="CR">Приморский край</td></tr>
+<tr class="CRg2 RUS"><td class="CRc">13</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=13">Миронов, Даниил Павлович</a></td><td></td><td class="CR">RUS</td><td class="CRr">1363</td><td class="CR">Приморский край</td></tr>
+<tr class="CRg1 RUS"><td class="CRc">14</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=14">Алексеева, Екатерина Ивановна</a></td><td></td><td class="CR">RUS</td><td class="CRr">1336</td><td class="CR">Приморский край</td></tr>
+<tr class="CRg2 RUS"><td class="CRc">15</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=15">Федоров, Максим Олегович</a></td><td><a href="http://ratings.fide.com/profile/540049604" target="_blank">540049604</a></td><td class="CR">RUS</td><td class="CRr">1326</td><td class="CR">Приморский край</td></tr>
+<tr class="CRg1 RUS"><td class="CRc">16</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=16">Андреев, Иван Сергеевич</a></td><td></td><td class="CR">RUS</td><td class="CRr">1318</td><td class="CR">Приморский край</td></tr>
+<tr class="CRg2 RUS"><td class="CRc">17</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=17">Николаев, Артём Викторович</a></td><td></td><td class="CR">RUS</td><td class="CRr">1317</td><td class="CR">Приморский край</td></tr>
+<tr class="CRg1 RUS"><td class="CRc">18</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=18">Павлов, Семен Иванович</a></td><td></td><td class="CR">RUS</td><td class="CRr">1309</td><td class="CR">Приморский край</td></tr>
+<tr class="CRg2 RUS"><td class="CRc">19</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=19">Семенов, Михаил Андреевич</a></td><td></td><td class="CR">RUS</td><td class="CRr">1285</td><td class="CR">Приморский край</td></tr>
+<tr class="CRg1 RUS"><td class="CRc">20</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=20">Егоров, Даниил Олегович</a></td><td></td><td class="CR">RUS</td><td class="CRr">1250</td><td class="CR">Приморский край</td></tr>
+<tr class="CRg2 RUS"><td class="CRc">21</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=21">Максимов, Иван Михайлович</a></td><td></td><td class="CR">RUS</td><td class="CRr">1238</td><td class="CR">Приморский край</td></tr>
+<tr class="CRg1 RUS"><td class="CRc">22</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=22">Никитин, Максим Сергеевич</a></td><td></td><td class="CR">RUS</td><td class="CRr">1232</td><td class="CR">Приморский край</td></tr>
+<tr class="CRg2 RUS"><td class="CRc">23</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=23">Орлова, Анна Ивановна</a></td><td></td><td class="CR">RUS</td><td class="CRr">1221</td><td class="CR">Приморский край</td></tr>
+<tr class="CRg1 RUS"><td class="CRc">24</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=24">Козлова, Екатерина Сергеевна</a></td><td></td><td class="CR">RUS</td><td class="CRr">1194</td><td class="CR">Приморский край</td></tr>
+<tr class="CRg2 RUS"><td class="CRc">25</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=25">Медведев, Артём Алексеевич</a></td><td></td><td class="CR">RUS</td><td class="CRr">1188</td><td class="CR">Приморский край</td></tr>
+<tr class="CRg1 RUS"><td class="CRc">26</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=26">Борисов, Даниил Олегович</a></td><td></td><td class="CR">RUS</td><td class="CRr">1187</td><td class="CR">Приморский край</td></tr>
+<tr class="CRg2 RUS"><td class="CRc">27</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=27">Петров, Петр Петрович</a></td><td></td><td class="CR">RUS</td><td class="CRr">1179</td><td class="CR">Приморский край</td></tr>
+<tr class="CRg1 RUS"><td class="CRc">28</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=28">Кузнецов, Артём Сергеевич</a></td><td></td><td class="CR">RUS</td><td class="CRr">1176</td><td class="CR">Приморский край</td></tr>
+<tr class="CRg2 RUS"><td class="CRc">29</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=29">Волков, Илья Максимович</a></td><td></td><td class="CR">RUS</td><td class="CRr">1142</td><td class="CR">Приморский край</td></tr>
+<tr class="CRg1 RUS"><td class="CRc">30</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=30">Морозов, Даниил Андреевич</a></td><td></td><td class="CR">RUS</td><td class="CRr">1135</td><td class="CR">Приморский край</td></tr>
+<tr class="CRg2 RUS"><td class="CRc">31</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=31">Попов, Артём Олегович</a></td><td></td><td class="CR">RUS</td><td class="CRr">1129</td><td class="CR">Приморский край</td></tr>
+<tr class="CRg1 RUS"><td class="CRc">32</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=32">Смирнов, Максим Иванович</a></td><td></td><td class="CR">RUS</td><td class="CRr">1128</td><td class="CR">Приморский край</td></tr>
+<tr class="CRg2 RUS"><td class="CRc">33</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=33">Васильев, Даниил Сергеевич</a></td><td></td><td class="CR">RUS</td><td class="CRr">1128</td><td class="CR">Приморский край</td></tr>
+<tr class="CRg1 RUS"><td class="CRc">34</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=34">Новиков, Илья Олегович</a></td><td></td><td class="CR">RUS</td><td class="CRr">1124</td><td class="CR">Приморский край</td></tr>
+<tr class="CRg2 RUS"><td class="CRc">35</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=35">Федоров, Артём Михайлович</a></td><td></td><td class="CR">RUS</td><td class="CRr">1106</td><td class="CR">Приморский край</td></tr>
+<tr class="CRg1 RUS"><td class="CRc">36</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=36">Андреев, Даниил Олегович</a></td><td></td><td class="CR">RUS</td><td class="CRr">1094</td><td class="CR">Приморский край</td></tr>
+<tr class="CRg2 RUS"><td class="CRc">37</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=37">Воробьев, Максим Иванович</a></td><td></td><td class="CR">RUS</td><td class="CRr">1087</td><td class="CR">Приморский край</td></tr>
+<tr class="CRg1 RUS"><td class="CRc">38</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=38">Павлов, Артём Сергеевич</a></td><td></td><td class="CR">RUS</td><td class="CRr">1075</td><td class="CR">Приморский край</td></tr>
+<tr class="CRg2 RUS"><td class="CRc">39</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=39">Миронов, Даниил Олегович</a></td><td></td><td class="CR">RUS</td><td class="CRr">1066</td><td class="CR">Приморский край</td></tr>
+<tr class="CRg1 RUS"><td class="CRc">40</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=40">Соколова, Анна Ивановна</a></td><td></td><td class="CR">RUS</td><td class="CRr">1056</td><td class="CR">Приморский край</td></tr>
+<tr class="CRg2 RUS"><td class="CRc">41</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=41">Волков, Максим Андреевич</a></td><td></td><td class="CR">RUS</td><td class="CRr">1029</td><td class="CR">Приморский край</td></tr>
+<tr class="CRg1 RUS"><td class="CRc">42</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=42">Михайлов, Даниил Сергеевич</a></td><td></td><td class="CR">RUS</td><td class="CRr">1007</td><td class="CR">Приморский край</td></tr>
+<tr class="CRg2 RUS"><td class="CRc">43</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=43">Орлова, Екатерина Ивановна</a></td><td></td><td class="CR">RUS</td><td class="CRr">1000</td><td class="CR">Приморский край</td></tr>
+<tr class="CRg1 RUS"><td class="CRc">44</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=44">Козлова, Анна Михайловна</a></td><td></td><td class="CR">RUS</td><td class="CRr">1000</td><td class="CR">Приморский край</td></tr>
+<tr class="CRg2 RUS"><td class="CRc">45</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=45">Борисов, Максим Иванович</a></td><td></td><td class="CR">RUS</td><td class="CRr">1000</td><td class="CR">Приморский край</td></tr>
+<tr class="CRg1 RUS"><td class="CRc">46</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=46">Воробьев, Даниил Олегович</a></td><td></td><td class="CR">RUS</td><td class="CRr">1000</td><td class="CR">Приморский край</td></tr>
+<tr class="CRg2 RUS"><td class="CRc">47</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=47">Смирнов, Максим Сергеевич</a></td><td></td><td class="CR">RUS</td><td class="CRr">1000</td><td class="CR">Приморский край</td></tr>
+<tr class="CRg1 RUS"><td class="CRc">48</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=48">Новиков, Артём Иванович</a></td><td></td><td class="CR">RUS</td><td class="CRr">1000</td><td class="CR">Приморский край</td></tr>
+<tr class="CRg2 RUS"><td class="CRc">49</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=49">Федоров, Даниил Олегович</a></td><td></td><td class="CR">RUS</td><td class="CRr">1000</td><td class="CR">Приморский край</td></tr>
+<tr class="CRg1 RUS"><td class="CRc">50</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=50">Андреев, Максим Иванович</a></td><td></td><td class="CR">RUS</td><td class="CRr">0</td><td class="CR">Приморский край</td></tr>
+<tr class="CRg2 RUS"><td class="CRc">51</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=51">Павлова, Анна Сергеевна</a></td><td></td><td class="CR">RUS</td><td class="CRr">0</td><td class="CR">Приморский край</td></tr>
+<tr class="CRg1 RUS"><td class="CRc">52</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=52">Васильев, Даниил Михайлович</a></td><td></td><td class="CR">RUS</td><td class="CRr">0</td><td class="CR">Приморский край</td></tr>
+<tr class="CRg2 RUS"><td class="CRc">53</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=53">Морозов, Артём Олегович</a></td><td></td><td class="CR">RUS</td><td class="CRr">0</td><td class="CR">Приморский край</td></tr>
+<tr class="CRg1 RUS"><td class="CRc">54</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=54">Новиков, Максим Иванович</a></td><td></td><td class="CR">RUS</td><td class="CRr">1085</td><td class="CR">Приморский край</td></tr>
+<tr class="CRg2 RUS"><td class="CRc">55</td><td class="CR"></td><td class="CR"><a class="CRdb" href="https://chess-results.com/tnr1393466.aspx?lan=11&amp;art=9&amp;fed=RUS&amp;snr=55">Соколов, Даниил Сергеевич</a></td><td></td><td class="CR">RUS</td><td class="CRr">1000</td><td class="CR">Приморский край</td></tr>
+</tbody></table></div>
+<a id="P1_LinkButton2" href="javascript:__doPostBack('ctl00$P1$LinkButton2','')"></a>
+
+  </div>
+</td>
+				<td width="6" class="CR0"></td>
+				<td width="300" align="left" class="CR0grau">
+    <div id="F8" style="PADDING: 0px; MARGIN: 0px; visibility: visible;"><table border="0" cellspacing="0" cellpadding="0"><tbody><tr><td class="CR0"><img border="0" src="Chess-Results%20Server%20Chess-results.com%20-%202026-3-%D0%B8%D0%B9%20%D0%AD%D1%82%D0%B0%D0%BF%20%D0%9A%D0%A3%D0%B1%D0%BA%D0%B0%20%D0%BA%D1%80%D0%B0%D1%8F%20%D0%BF%D0%B0%D0%BC%D1%8F%D1%82%D0%B8%20%D0%90.%D0%97.%D0%91%D0%BE%D1%80%D0%BE%D0%B2%D0%B8%D0%BA%D0%B0-C_files/Abstand_160x6.png" width="160" height="6"></td></tr>
+<tr><td class="CR0">
+<div data-fuse="result_vrec_300x600"></div>
+</td></tr></tbody></table></div>
+</td>
+			</tr>
+		</tbody></table>
+		 
+   </div>
+	 </td>
+	</tr>
+	<tr>
+		<td class="CR0">
+	 
+	 
+	 
+   </td>
+	</tr>
+	<tr>
+		<td class="CR0">
+     <div id="fuss" style="WIDTH: 986px"><a href="https://s1.chess-results.com/Default.aspx?lan=11" target="_blank"><b>сервер Chess-Tournament-Results</b></a><a href="https://swiss-manager.at/author.aspx?lan=11" target="_blank"> © 1994-2026 Heinz Herzog</a>, CMS-Version 12.04.2026 13:15, Node S1<br><a href="https://s1.chess-results.com/Impressum.aspx?lan=11">условия использования</a></div>
+	 </td>
+	</tr>
+</tbody></table>
+
+	
+
+
+
+
+</form>
+
+
+
+
+</body></html>
