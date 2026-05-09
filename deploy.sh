@@ -62,7 +62,7 @@ check_prerequisites() {
     
     local missing_tools=()
     
-    for cmd in docker docker-compose psql; do
+    for cmd in docker psql; do
         if ! command_exists "$cmd"; then
             missing_tools+=("$cmd")
         fi
@@ -70,7 +70,14 @@ check_prerequisites() {
     
     if [ ${#missing_tools[@]} -ne 0 ]; then
         log_error "Missing required tools: ${missing_tools[*]}"
-        log_info "Please install: docker, docker-compose, postgresql-client"
+        log_info "Please install: docker (with compose plugin), postgresql-client"
+        exit 1
+    fi
+    
+    # Check docker compose plugin
+    if ! docker compose version &> /dev/null; then
+        log_error "Docker compose plugin not found"
+        log_info "Please install Docker with compose plugin (Docker version 20.10+)"
         exit 1
     fi
     
@@ -93,14 +100,14 @@ start_postgres() {
     cd "$PROJECT_DIR"
     
     # Check if container already exists
-    if docker-compose ps | grep -q "chessfan-postgres"; then
+    if docker compose ps | grep -q "chessfan-postgres"; then
         log_warning "Container 'chessfan-postgres' already exists"
         log_info "Stopping existing container..."
-        docker-compose stop postgres
+        docker compose stop postgres
     fi
     
     # Start the container
-    docker-compose up -d postgres
+    docker compose up -d postgres
     
     log_success "PostgreSQL container started"
 }
@@ -114,7 +121,7 @@ wait_for_postgres() {
     local sleep_interval=2
     
     while [ $attempt -le $max_attempts ]; do
-        if docker-compose exec -T postgres pg_isready -U "$DB_USER" -d "$DB_NAME" > /dev/null 2>&1; then
+        if docker compose exec -T postgres pg_isready -U "$DB_USER" -d "$DB_NAME" > /dev/null 2>&1; then
             log_success "PostgreSQL is ready to accept connections"
             return 0
         fi
@@ -125,7 +132,7 @@ wait_for_postgres() {
     done
     
     log_error "PostgreSQL failed to start within $((max_attempts * sleep_interval)) seconds"
-    log_info "Check logs: docker-compose logs postgres"
+    log_info "Check logs: docker compose logs postgres"
     exit 1
 }
 
@@ -137,6 +144,18 @@ create_database_structure() {
     if [ ! -f "$SQL_INIT_FILE" ]; then
         log_error "SQL initialization file not found: $SQL_INIT_FILE"
         exit 1
+    fi
+    
+    # Check if tables already exist (database already initialized)
+    if PGPASSWORD="$DB_PASSWORD" psql \
+        -h "$DB_HOST" \
+        -p "$DB_PORT" \
+        -U "$DB_USER" \
+        -d "$DB_NAME" \
+        -t \
+        -c "SELECT 1 FROM information_schema.tables WHERE table_name = 'players';" 2>/dev/null | grep -q "1"; then
+        log_warning "Database structure already exists, skipping initialization"
+        return 0
     fi
     
     # Run the SQL script
@@ -272,14 +291,14 @@ show_connection_info() {
     echo "  # Connect to database"
     echo "  PGPASSWORD=$DB_PASSWORD psql -h $DB_HOST -p $DB_PORT -U $DB_USER -d $DB_NAME"
     echo ""
-    echo "  # Using docker-compose"
-    echo "  docker-compose exec postgres psql -U $DB_USER -d $DB_NAME"
+    echo "  # Using docker compose"
+    echo "  docker compose exec postgres psql -U $DB_USER -d $DB_NAME"
     echo ""
     log_info "View logs:"
-    echo "  docker-compose logs -f postgres"
+    echo "  docker compose logs -f postgres"
     echo ""
     log_info "Stop database:"
-    echo "  docker-compose down"
+    echo "  docker compose down"
     echo ""
 }
 

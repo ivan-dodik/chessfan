@@ -29,7 +29,7 @@ cp .env.example .env
 ### 3. Start PostgreSQL
 
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 This command will:
@@ -42,13 +42,13 @@ This command will:
 
 ```bash
 # Check container status
-docker-compose ps
+docker compose ps
 
 # View logs
-docker-compose logs -f postgres
+docker compose logs -f postgres
 
 # Connect to database
-docker-compose exec postgres psql -U chessfan -d chessfan -c "\dt"
+docker compose exec postgres psql -U chessfan -d chessfan -c "\dt"
 ```
 
 You should see the following tables:
@@ -79,37 +79,37 @@ psql -h postgres -U chessfan -d chessfan -p 5432
 ### Start database
 
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 ### Stop database
 
 ```bash
-docker-compose down
+docker compose down
 ```
 
 ### Stop and remove volumes (data loss!)
 
 ```bash
-docker-compose down -v
+docker compose down -v
 ```
 
 ### View logs
 
 ```bash
-docker-compose logs -f postgres
+docker compose logs -f postgres
 ```
 
 ### Execute SQL commands
 
 ```bash
-docker-compose exec postgres psql -U chessfan -d chessfan -c "SELECT * FROM players;"
+docker compose exec postgres psql -U chessfan -d chessfan -c "SELECT * FROM players;"
 ```
 
 ### Open psql shell
 
 ```bash
-docker-compose exec postgres psql -U chessfan -d chessfan
+docker compose exec postgres psql -U chessfan -d chessfan
 ```
 
 ## Data Persistence
@@ -119,13 +119,13 @@ Database data is stored in a Docker volume named `postgres_data`. This ensures d
 To backup the database:
 
 ```bash
-docker-compose exec postgres pg_dump -U chessfan chessfan > backup.sql
+docker compose exec postgres pg_dump -U chessfan chessfan > backup.sql
 ```
 
 To restore from backup:
 
 ```bash
-docker-compose exec -i postgres psql -U chessfan -d chessfan < backup.sql
+docker compose exec -i postgres psql -U chessfan -d chessfan < backup.sql
 ```
 
 ## Environment Variables
@@ -143,7 +143,7 @@ docker-compose exec -i postgres psql -U chessfan -d chessfan < backup.sql
 
 ```bash
 # Check logs
-docker-compose logs postgres
+docker compose logs postgres
 
 # Common issue: port already in use
 # Change POSTGRES_PORT in .env or stop other PostgreSQL instance
@@ -153,15 +153,15 @@ docker-compose logs postgres
 
 ```bash
 # Remove container and volume, then restart
-docker-compose down -v
-docker-compose up -d
+docker compose down -v
+docker compose up -d
 ```
 
 ### Connection refused
 
 ```bash
 # Ensure container is running
-docker-compose ps
+docker compose ps
 
 # Check if port is listening
 netstat -tlnp | grep 5432

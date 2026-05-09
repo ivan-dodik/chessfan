@@ -49,12 +49,12 @@ See [Deployment Verification](../deployment/verify.md) for verification details.
 
 2. Start PostgreSQL with:
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 3. Verify the database:
 ```bash
-docker-compose exec postgres psql -U chessfan -d chessfan -c "\dt"
+docker compose exec postgres psql -U chessfan -d chessfan -c "\dt"
 ```
 
 See [Docker Deployment Guide](../deployment/docker.md) for more details.

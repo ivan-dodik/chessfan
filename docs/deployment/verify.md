@@ -21,7 +21,7 @@ The script automatically verifies all database structures after creation.
 #### 1. Check Container Status
 
 ```bash
-docker-compose ps
+docker compose ps
 ```
 
 Expected output should show `chessfan-postgres` as `Up`:
@@ -34,7 +34,7 @@ chessfan-postgres   Up (healthy)        0.0.0.0:5432->5432/tcp
 #### 2. Check Database Connection
 
 ```bash
-docker-compose exec postgres pg_isready -U chessfan -d chessfan
+docker compose exec postgres pg_isready -U chessfan -d chessfan
 ```
 
 Expected output:
@@ -49,7 +49,7 @@ pg_isready: connection accepted
 #### 3. List All Tables
 
 ```bash
-docker-compose exec postgres psql -U chessfan -d chessfan -c "\dt"
+docker compose exec postgres psql -U chessfan -d chessfan -c "\dt"
 ```
 
 Expected tables:
@@ -69,7 +69,7 @@ public | tournament_standings | table | chessfan
 #### 4. List All Views
 
 ```bash
-docker-compose exec postgres psql -U chessfan -d chessfan -c "\dv"
+docker compose exec postgres psql -U chessfan -d chessfan -c "\dv"
 ```
 
 Expected views:
@@ -86,7 +86,7 @@ public | v_player_rating_history | view | chessfan
 #### 5. Check Trigger
 
 ```bash
-docker-compose exec postgres psql -U chessfan -d chessfan -c "\d games"
+docker compose exec postgres psql -U chessfan -d chessfan -c "\d games"
 ```
 
 Look for the trigger in the output:
@@ -98,7 +98,7 @@ Triggers:
 #### 6. Test pg_notify Function
 
 ```bash
-docker-compose exec postgres psql -U chessfan -d chessfan -c "SELECT proname FROM pg_proc WHERE proname = 'notify_game_result_change';"
+docker compose exec postgres psql -U chessfan -d chessfan -c "SELECT proname FROM pg_proc WHERE proname = 'notify_game_result_change';"
 ```
 
 Expected output:
@@ -116,7 +116,7 @@ notify_game_result_change
 #### Players Table
 
 ```bash
-docker-compose exec postgres psql -U chessfan -d chessfan -c "\d players"
+docker compose exec postgres psql -U chessfan -d chessfan -c "\d players"
 ```
 
 Should show:
@@ -131,7 +131,7 @@ Should show:
 #### Tournaments Table
 
 ```bash
-docker-compose exec postgres psql -U chessfan -d chessfan -c "\d tournaments"
+docker compose exec postgres psql -U chessfan -d chessfan -c "\d tournaments"
 ```
 
 Should show:
@@ -145,7 +145,7 @@ Should show:
 #### Games Table
 
 ```bash
-docker-compose exec postgres psql -U chessfan -d chessfan -c "\d games"
+docker compose exec postgres psql -U chessfan -d chessfan -c "\d games"
 ```
 
 Should show:
@@ -160,7 +160,7 @@ Should show:
 ### Verify Indexes
 
 ```bash
-docker-compose exec postgres psql -U chessfan -d chessfan -c "\di"
+docker compose exec postgres psql -U chessfan -d chessfan -c "\di"
 ```
 
 Should show 11 indexes for the tables.
@@ -168,7 +168,7 @@ Should show 11 indexes for the tables.
 ### Verify Foreign Key Constraints
 
 ```bash
-docker-compose exec postgres psql -U chessfan -d chessfan -c "SELECT tc.table_name, tc.constraint_name, ccu.column_name, ccu.table_name AS foreign_table_name FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage ccu ON tc.constraint_name = ccu.constraint_name WHERE tc.constraint_type = 'FOREIGN KEY';"
+docker compose exec postgres psql -U chessfan -d chessfan -c "SELECT tc.table_name, tc.constraint_name, ccu.column_name, ccu.table_name AS foreign_table_name FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage ccu ON tc.constraint_name = ccu.constraint_name WHERE tc.constraint_type = 'FOREIGN KEY';"
 ```
 
 Should show foreign key relationships for:
@@ -187,7 +187,7 @@ Should show foreign key relationships for:
 
 ```bash
 # Check logs
-docker-compose logs postgres
+docker compose logs postgres
 
 # Common issue: port already in use
 # Stop other PostgreSQL instance or change port in docker-compose.yml
@@ -198,10 +198,10 @@ docker-compose logs postgres
 ```bash
 # Wait a bit and try again
 sleep 10
-docker-compose exec postgres pg_isready
+docker compose exec postgres pg_isready
 
 # Check if PostgreSQL is fully initialized
-docker-compose logs postgres | grep "database system is ready"
+docker compose logs postgres | grep "database system is ready"
 ```
 
 ### SQL Script Failed
@@ -211,22 +211,22 @@ docker-compose logs postgres | grep "database system is ready"
 ls -la docs/db/sql/create.sql
 
 # Manually run the script
-docker-compose exec -T postgres psql -U chessfan -d chessfan -f /docker-entrypoint-initdb.d/init.sql
+docker compose exec -T postgres psql -U chessfan -d chessfan -f /docker-entrypoint-initdb.d/init.sql
 ```
 
 ### Missing Tables/Views
 
 ```bash
 # Check if schema was created
-docker-compose exec postgres psql -U chessfan -d chessfan -c "\dt public.*"
+docker compose exec postgres psql -U chessfan -d chessfan -c "\dt public.*"
 
 # Check schema version
-docker-compose exec postgres psql -U chessfan -d chessfan -c "SELECT * FROM information_schema.schemata WHERE schema_name = 'public';"
+docker compose exec postgres psql -U chessfan -d chessfan -c "SELECT * FROM information_schema.schemata WHERE schema_name = 'public';"
 ```
 
 ## Verification Checklist
 
-- [ ] Container is running (`docker-compose ps`)
+- [ ] Container is running (`docker compose ps`)
 - [ ] PostgreSQL is ready (`pg_isready` returns success)
 - [ ] All 6 tables exist
 - [ ] All 3 views exist

@@ -10,8 +10,7 @@ Chessfan helps chess fans track their favorite players' games on offline tournam
 
 ### Prerequisites
 
-- Docker (version 20.10+)
-- Docker Compose (version 2.0+)
+- Docker (version 20.10+) with compose plugin
 - PostgreSQL client (psql)
 
 ### Deployment
