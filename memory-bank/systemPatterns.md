@@ -22,13 +22,13 @@
 │  │  └─────────────┘  └─────────────┘  └──────────────────────┘  │   │
 │  │  ┌─────────────┐  ┌─────────────┐  ┌──────────────────────┐  │   │
 │  │  │   Games     │  │ Standings   │  │   Tournament Stats   │  │   │
-│  │  │   Table     │  │   Table     │  │   (Views/Materialized│  │   │
+│  │  │   Table     │  │   Table     │  │   (Views)            │  │   │
 │  │  └─────────────┘  └─────────────┘  └──────────────────────┘  │   │
 │  └──────────────────────────────────────────────────────────────┘   │
 │                                                                       │
 │  ┌──────────────────────────────────────────────────────────────┐   │
 │  │                    Notification Service                      │   │
-│  │                    (pg_notify / Kafka)                       │   │
+│  │                    (pg_notify)                               │   │
 │  └──────────────────────────────────────────────────────────────┘   │
 │                                                                       │
 └─────────────────────────────────────────────────────────────────────┘
@@ -42,12 +42,14 @@
 3. **Minimal Fields**: No created_at/updated_at in most tables (except debugging)
 4. **No PGN**: PGN notation excluded from MVP
 5. **No Exact Times**: Only tournament dates, not game start/end times
+6. **Single Score Field**: Games table uses single `score` field (white's points)
+7. **rus_id**: Russian Federation ID instead of FIDE ID
 
 ### Table Structure Principles
 1. **Separate Tournament Participation**: One player can participate in multiple tournaments with different ratings
 2. **Rating History**: Store rating changes over time for trend analysis
 3. **Standings Snapshots**: Capture tournament position after each round
-4. **Bye Handling**: Special handling for players who get points without playing
+4. **Bye Handling**: Special handling for players who get points without playing (no game record)
 
 ## Component Relationships
 
@@ -71,7 +73,8 @@
 │     ├─ UPSERT players                                               │
 │     ├─ UPSERT tournaments                                           │
 │     ├─ Insert game results                                          │
-│     └─ Update standings snapshots                                   │
+│     ├─ Update standings snapshots                                   │
+│     └─ Update rating history                                        │
 │                                                                       │
 │  4. Notification Trigger                                            │
 │     ├─ Detect game result changes                                   │
@@ -123,17 +126,39 @@
 - `GET /stats/player-performance` - Performance metrics
 - `GET /stats/tournament-summary` - Tournament statistics
 
-## Data Models (MVP)
+## Database Schema (MVP)
 
 ### Core Tables
-- `players` - Player information
-- `tournaments` - Tournament metadata
-- `tournament_players` - Player participation records
-- `games` - Game results
-- `player_ratings` - Rating history
-- `tournament_standings` - Standings snapshots
+| Table | Description |
+|-------|-------------|
+| `players` | Player information (id, rus_id, name, gender, birth_year, city) |
+| `tournaments` | Tournament metadata (name, location, dates) |
+| `tournament_players` | Player participation with rating_at_tournament |
+| `games` | Game results (single score field for white's points) |
+| `player_ratings` | Rating history with dates |
+| `tournament_standings` | Standings snapshots after each round |
 
 ### Views
-- `v_player_profile` - Combined player information
-- `v_active_tournament_table` - Current standings
-- `v_player_tournament_stats` - Tournament statistics per player
+| View | Description |
+|------|-------------|
+| `v_active_tournament_table` | Current standings for active tournaments |
+| `v_player_profile` | Player profile with statistics |
+| `v_player_rating_history` | Player's rating history over time |
+
+### Indexes
+- Tournament and player lookups
+- Game lookups by tournament, round, and player
+- Rating history lookups by player and date
+- Standings lookups by tournament and round
+
+## Configuration
+
+### Database Setup
+- PostgreSQL 13+
+- Database name: `chessfan`
+- User: postgres (or custom user)
+
+### Notification Setup
+- Channel: `game_result_changes`
+- Payload format: JSON
+- Events: game_created, game_updated, game_deleted

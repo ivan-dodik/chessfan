@@ -7,7 +7,7 @@
   - JSON support for flexible data storage
   - pg_notify for real-time notifications
   - Window functions for standings calculations
-  - Materialized views for complex aggregations
+  - Views for simplified queries
 
 ### Backend
 - **Python** - Data ingestion and scraping
@@ -42,7 +42,14 @@
 chessfan/
 ├── memory-bank/          # Project documentation
 ├── planning/            # Planning documents (locked)
-├── database/            # SQL scripts and migrations
+├── docs/                # Documentation
+│   └── db/              # Database documentation
+│       ├── README.md    # Database setup guide
+│       ├── schema.md    # Database schema
+│       ├── views.md     # Database views
+│       ├── triggers.md  # Triggers and notifications
+│       └── sql/         # SQL scripts
+│           └── create.sql
 ├── ingestion/           # Data scraping and ingestion
 │   └── src/
 │       ├── scrapers/    # Website scrapers
@@ -57,8 +64,8 @@ chessfan/
 ```
 
 ### Database Setup
-1. Create PostgreSQL database
-2. Run SQL migration scripts
+1. Create PostgreSQL database: `createdb chessfan`
+2. Run SQL migration scripts: `psql -f docs/db/sql/create.sql`
 3. Configure connection string
 4. Set up notification listeners
 
@@ -76,6 +83,8 @@ chessfan/
 - No PGN notation in MVP
 - No exact game start/end times
 - Ratings updated only after tournament completion
+- Single score field in games table (white's points only)
+- rus_id instead of fide_id for Russian Federation ID
 
 ### Data Source Constraints
 - chess-results.com is the primary data source
@@ -88,6 +97,7 @@ chessfan/
 - Rating history stored for trend analysis
 - Snapshots created after each round for historical standings
 - pg_notify for real-time updates to connected clients
+- Indexes on foreign keys and common query patterns
 
 ## Dependencies
 
