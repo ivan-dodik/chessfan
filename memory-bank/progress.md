@@ -2,6 +2,11 @@
 
 ## Current Status
 
+### Documentation Updates (May 10, 2026)
+- Updated .clinerules/update_prompts.md with timestamp format (YYYY-MM-DD HH:MM)
+- Updated CHANGES.md with timestamps and inverted chronological order
+- Added rules for adding new entries (always at end of file)
+
 ### Project Phase
 **Scraper Development Complete** - Database schema designed and documented. Docker Compose configured for PostgreSQL. Python scraper for chess-results.com and ruchess.ru developed and tested.
 
@@ -79,51 +84,13 @@
 - Defined system architecture and patterns
 - Documented technology stack
 - **Completed database schema design** (May 10, 2026)
-  - 6 tables: players, tournaments, tournament_players, games, player_ratings, tournament_standings
-  - 11 indexes for query optimization
-  - 3 views: v_active_tournament_table, v_player_profile, v_player_rating_history
-  - 1 pg_notify trigger for live game result notifications
-  - Documentation in docs/db/ directory
 - **Completed Docker Compose configuration** (May 10, 2026)
-  - Created docker-compose.yml for PostgreSQL 15
-  - Created .env.example with environment variables
-  - Created docs/deployment/docker.md with deployment guide
-  - Updated docs/db/README.md with Docker quick start
-  - Updated PROMPTS.md and CHANGES.md
 - **Completed deployment script** (May 10, 2026)
-  - Created deploy.sh for automated PostgreSQL deployment
-  - Script starts container, waits for readiness, creates DB structure, verifies everything
-  - Created docs/deployment/verify.md for verification guide
-  - Updated root README.md with project overview
-  - Updated PROMPTS.md and CHANGES.md
-- **Fixed deployment script issues** (May 10, 2026)
-  - Replaced docker-compose with docker compose (new CLI plugin syntax)
-  - Updated check_prerequisites() to check for docker compose plugin
-  - Fixed create_database_structure() to skip if tables already exist (idempotent)
 - **Completed scraper development** (May 10, 2026)
-  - Created scraper/ directory structure with modular architecture
-  - Implemented BaseParser, CacheManager, SessionManager in utils.py
-  - Implemented ChessResultsTournamentParser, ChessResultsRoundParser, ChessResultsPlayerParser
-  - Implemented RuChessPlayerParser, RuChessTournamentParser
-  - Created Database class for PostgreSQL integration
-  - Created main.py CLI interface for running parsers
-  - Created comprehensive documentation in docs/scraper/
-  - Tested all parsers on real HTML files
 - **Completed data obfuscation** (May 10, 2026)
-  - Replaced all real player names with fictional names in HTML samples (55 players)
-  - Replaced all real birth years with fictional years (shifted by -6 years)
-  - Updated documentation with obfuscated data
-  - Renamed HTML files to match obfuscated names
-  - Removed all references to original names from documentation and code
-  - Maintained data consistency across all files
-  - Verified scraper still works with obfuscated data
-  - Updated PROMPTS.md and CHANGES.md per .clinerules/update_prompts.md
 - **Completed Milestone 1: Database Ready** (May 10, 2026)
-  - Deployed PostgreSQL database using deploy.sh script
-  - Created sample data script (docs/db/sql/sample_data.sql) with 5 players, 1 tournament, 10 games
-  - Added unique constraints to tables for proper upsert operations
-  - Verified pg_notify functionality with trigger on games table
-  - Updated progress.md to reflect completed milestones
+- **Updated .clinerules/update_prompts.md** (May 10, 2026) - Added timestamp format and new entry rules
+- **Updated CHANGES.md** (May 10, 2026) - Added timestamps and inverted order
 
 ## Upcoming Milestones
 

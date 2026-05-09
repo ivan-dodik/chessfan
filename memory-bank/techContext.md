@@ -49,26 +49,14 @@ chessfan/
 ├── planning/            # Planning documents (locked)
 ├── docs/                # Documentation
 │   ├── db/              # Database documentation
-│   │   ├── README.md    # Database setup guide
-│   │   ├── schema.md    # Database schema
-│   │   ├── views.md     # Database views
-│   │   ├── triggers.md  # Triggers and notifications
-│   │   └── sql/         # SQL scripts
-│   │       └── create.sql
 │   └── deployment/      # Deployment documentation
-│       ├── docker.md    # Docker deployment guide
-│       └── verify.md    # Verification guide
-├── ingestion/           # Data scraping and ingestion
+├── scraper/             # Data scraping and ingestion
 │   └── src/
-│       ├── scrapers/    # Website scrapers
-│       └── parsers/     # Data parsers
-├── api/                 # API server
+├── api/                 # API server (future)
 │   └── src/
-│       ├── routes/      # API routes
-│       └── controllers/ # Business logic
-└── frontend/            # Next.js application
-    ├── app/             # App Router pages
-    └── components/      # React components
+└── frontend/            # Next.js application (future)
+    ├── app/
+    └── components/
 ```
 
 ### Database Setup (Automated)
@@ -148,7 +136,7 @@ chessfan/
 docker-compose up -d
 
 # Run ingestion
-cd ingestion && python -m src.scrapers.tournament_scraper
+cd scraper && python -m src.chess_results_parser
 
 # Start API
 cd api && npm run dev

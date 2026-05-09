@@ -6,7 +6,6 @@
 ┌─────────────────────────────────────────────────────────────────────┐
 │                         Chessfan Application                         │
 ├─────────────────────────────────────────────────────────────────────┤
-│                                                                       │
 │  ┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐ │
 │  │   Data Ingestion│────▶│   API Layer     │────▶│   Frontend      │ │
 │  │   (External     │     │   (REST/GraphQL│     │   (Next.js)     │ │
@@ -25,12 +24,10 @@
 │  │  │   Table     │  │   Table     │  │   (Views)            │  │   │
 │  │  └─────────────┘  └─────────────┘  └──────────────────────┘  │   │
 │  └──────────────────────────────────────────────────────────────┘   │
-│                                                                       │
 │  ┌──────────────────────────────────────────────────────────────┐   │
 │  │                    Notification Service                      │   │
 │  │                    (pg_notify)                               │   │
 │  └──────────────────────────────────────────────────────────────┘   │
-│                                                                       │
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -54,34 +51,28 @@
 ## Component Relationships
 
 ```
-┌─────────────────────────────────────────────────────────────────────┐
-│                        Data Flow Diagram                            │
-├─────────────────────────────────────────────────────────────────────┤
-│                                                                       │
-│  1. External Scraper (Python)                                       │
-│     ├─ Fetch from chess-results.com                                 │
-│     ├─ Parse tournament data                                        │
-│     ├─ Extract player information                                   │
-│     └─ Process game results                                         │
-│                                                                       │
-│  2. Data Validation Layer                                           │
-│     ├─ Validate player IDs                                          │
-│     ├─ Check tournament dates                                       │
-│     └─ Handle missing data                                          │
-│                                                                       │
-│  3. Database Ingestion                                              │
-│     ├─ UPSERT players                                               │
-│     ├─ UPSERT tournaments                                           │
-│     ├─ Insert game results                                          │
-│     ├─ Update standings snapshots                                   │
-│     └─ Update rating history                                        │
-│                                                                       │
-│  4. Notification Trigger                                            │
-│     ├─ Detect game result changes                                   │
-│     ├─ Send pg_notify events                                        │
-│     └─ Update real-time feeds                                       │
-│                                                                       │
-└─────────────────────────────────────────────────────────────────────┘
+External Scraper (Python)
+├─ Fetch from chess-results.com
+├─ Parse tournament data
+├─ Extract player information
+└─ Process game results
+
+Data Validation Layer
+├─ Validate player IDs
+├─ Check tournament dates
+└─ Handle missing data
+
+Database Ingestion
+├─ UPSERT players
+├─ UPSERT tournaments
+├─ Insert game results
+├─ Update standings snapshots
+└─ Update rating history
+
+Notification Trigger
+├─ Detect game result changes
+├─ Send pg_notify events
+└─ Update real-time feeds
 ```
 
 ## Critical Implementation Paths

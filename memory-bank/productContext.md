@@ -46,11 +46,7 @@ Chessfan provides a centralized platform for tracking chess players' performance
 
 ## Deployment
 - **Automated**: `deploy.sh` script for PostgreSQL
-  - Starts container, waits for readiness, creates DB structure, verifies everything
 - **Manual**: Docker Compose for PostgreSQL 15
-  - Database auto-initializes on first run
-  - Persistent volume for data storage
-  - Environment variables for configuration
 - **Documentation**: `docs/deployment/verify.md` for verification
 
 ## Future Enhancements
