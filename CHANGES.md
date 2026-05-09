@@ -102,3 +102,60 @@ Updated root README.md with comprehensive project overview and quick start guide
 
 ### Files Updated
 - `README.md` - Comprehensive project overview
+
+## 2026-05-10 - Scraper Development
+
+### Summary
+Created Python scraper for parsing chess tournament data from chess-results.com and ruchess.ru.
+
+### Files Created
+
+#### Core Modules
+- `scraper/src/utils.py` - BaseParser, CacheManager, SessionManager classes
+- `scraper/src/chess_results_parser.py` - ChessResultsTournamentParser, ChessResultsRoundParser, ChessResultsPlayerParser
+- `scraper/src/ruchess_parser.py` - RuChessPlayerParser, RuChessTournamentParser
+- `scraper/src/database.py` - Database class for PostgreSQL integration
+- `scraper/main.py` - CLI interface for running parsers
+- `scraper/requirements.txt` - Dependencies (requests, beautifulsoup4, psycopg2-binary, python-dotenv)
+
+#### Documentation
+- `docs/scraper/README.md` - Overview and usage guide
+- `docs/scraper/architecture.md` - Architecture documentation
+- `docs/scraper/chess_results_format.md` - chess-results.com data format
+- `docs/scraper/ruchess_format.md` - ruchess.ru data format
+
+### Features
+- Parses tournament information (art=5)
+- Parses round results (art=2)
+- Parses player profiles (art=9)
+- Parses Russian chess federation profiles
+- HTML caching with MD5 hash keys
+- HTTP retry logic for failed requests
+- PostgreSQL integration with upsert operations
+
+### Testing Results
+- Tournament parser: working
+- Round parser: working (27 games extracted)
+- Player profile parser (chess-results): working
+- Player profile parser (ruchess): working (name, ID, gender, region, birth year, all rating types, 5 tournaments)
+
+## 2026-05-10 - Scraper Data Obfuscation
+
+### Summary
+Replaced real player names and birth dates with fictional data to protect privacy while maintaining scraper functionality and data consistency.
+
+### Changes Made
+- Replaced all real player names with fictional names in HTML samples (55 players)
+- Replaced all real birth years with fictional years (shifted by -6 years)
+- Updated documentation with obfuscated data
+- Renamed HTML files to match obfuscated names
+- Removed all references to original names from documentation and code
+- Maintained data consistency across all files
+- Verified scraper still works with obfuscated data
+
+#### Files Updated
+- All 4 HTML sample files in `scraper/html_samples/`
+- `docs/scraper/README.md`
+- `docs/scraper/chess_results_format.md`
+- `docs/scraper/ruchess_format.md`
+- `scraper/src/ruchess_parser.py` (removed original name from comment)

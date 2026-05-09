@@ -203,3 +203,86 @@ Changes made:
 - Added documentation table with links to detailed guides
 - Included database schema summary
 - Listed next steps with links to future documentation
+
+## Scraper Development
+
+Prompt to agent in plan mode:
+
+```text
+Следующий этап - разработка парсера страниц с информацией о турнире. Напиши план по разработки парсера на Питоне следующих страничек:
+* информация о турнире chess-results.com (https://s3.chess-results.com/tnr1393466.aspx?lan=11&art=5&SNode=S0)
+* информация о туре chess-results.com (https://s3.chess-results.com/tnr1393466.aspx?lan=11&art=2&rd=1&turdet=YES&SNode=S0 )
+* профиль шахматиста chess-results.com (https://s1.chess-results.com/tnr1393466.aspx?lan=11&art=9&fed=RUS&turdet=YES&snr=1&SNode=S0 )
+* Профиль шахматиста на сайте федерации шахмат России (https://ratings.ruchess.ru/people/646647).
+
+Сохранённый html прилагаю.
+```
+
+Prompt to agent in act mode:
+
+```text
+Реализуй парсер шахматных данных согласно разработанному плану.
+
+Требования:
+1. Создать структуру проекта scraper/ с модульной архитектурой
+2. Создать базовый класс BaseParser для всех парсеров
+3. Реализовать парсеры для chess-results.com:
+   - ChessResultsTournamentParser - страница турнира (art=5)
+   - ChessResultsRoundParser - страница тура (art=2)
+   - ChessResultsPlayerParser - профиль игрока (art=9)
+4. Реализовать парсеры для ruchess.ru:
+   - RuChessPlayerParser - профиль игрока
+   - RuChessTournamentParser - страница турнира
+5. Создать интеграцию с PostgreSQL базой данных
+6. Создать основной скрипт main.py для запуска парсеров
+7. Написать документацию в docs/scraper/
+8. Протестировать все парсеры на реальных HTML-файлах
+
+Архитектура:
+- BaseParser - базовый класс с методами fetch(), parse(), parse_url()
+- CacheManager - управление кэшем HTML-файлов
+- SessionManager - управление HTTP-сессией с retry-логикой
+- Database - интеграция с PostgreSQL
+
+Все идентификаторы в snake_case. Python 3.10+.
+```
+
+Changes made:
+- Created scraper/ directory structure with src/ subdirectory
+- Created scraper/src/utils.py with BaseParser, CacheManager, SessionManager classes
+- Created scraper/src/chess_results_parser.py with 3 parser classes
+- Created scraper/src/ruchess_parser.py with 2 parser classes
+- Created scraper/src/database.py with Database class for PostgreSQL integration
+- Created scraper/main.py with CLI interface for running parsers
+- Created scraper/requirements.txt with dependencies (requests, beautifulsoup4, psycopg2-binary, python-dotenv)
+- Created docs/scraper/ directory with documentation:
+  - README.md - overview and usage guide
+  - architecture.md - architecture documentation
+  - chess_results_format.md - chess-results.com data format
+  - ruchess_format.md - ruchess.ru data format
+- Updated PROMPTS.md with scraper development history
+- Updated CHANGES.md with scraper development entry
+```
+
+## Scraper Data Obfuscation
+
+Prompt to agent in act mode:
+
+```text
+Обфусцируй (замени реальные на выдуманные) ФИО и даты рождения в скрейпере, документации и сохранённых страницах. При этом должна сохраниться консистентность и работоспособность скрейпера.
+
+Требования:
+1. Заменить реальные ФИО на выдуманные (например: Петров Иван -> Иванов Иван Иванович)
+2. Заменить реальные даты рождения на выдуманные (например: 2016 -> 2010)
+3. Обновить HTML-файлы в scraper/html_samples/
+4. Обновить документацию в docs/scraper/
+5. Обновить код парсеров если необходимо
+6. Сохранить консистентность данных (одинаковые имена в разных файлах)
+7. Проверить работоспособность парсеров после обфускации
+
+Правила обфускации:
+- Использовать вымышленные имена: Иванов Иван Иванович, Петров Петр Петрович, Сидоров Сидор Сидорович и т.д.
+- Использовать вымышленные даты: 2010-2015 для детей, 1990-2000 для взрослых
+- Сохранить структуру данных и консистентность
+- Не менять ID и другие технические данные
+```
