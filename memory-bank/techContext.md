@@ -1,0 +1,163 @@
+# Tech Context: Chessfan
+
+## Technology Stack
+
+### Database
+- **PostgreSQL 13+** - Primary database
+  - JSON support for flexible data storage
+  - pg_notify for real-time notifications
+  - Window functions for standings calculations
+  - Materialized views for complex aggregations
+
+### Backend
+- **Python** - Data ingestion and scraping
+  - BeautifulSoup - HTML parsing
+  - Playwright - Dynamic content loading
+  - psycopg2 / asyncpg - PostgreSQL connection
+- **FastAPI / NestJS** - API layer (choice pending)
+  - REST API for data access
+  - WebSockets for real-time updates
+
+### Frontend
+- **Next.js 16+** - Web application framework
+  - App Router for routing
+  - Server Components for performance
+  - Client Components for interactivity
+  - Cache Components mode for caching
+
+### Infrastructure
+- **Docker** - Containerization
+- **Git** - Version control (GitHub)
+
+## Development Setup
+
+### Prerequisites
+- Node.js 18+ (for Next.js)
+- Python 3.10+ (for data ingestion)
+- PostgreSQL 13+ (local or remote)
+- npm/pnpm/yarn/bun (package manager)
+
+### Project Structure
+```
+chessfan/
+├── memory-bank/          # Project documentation
+├── planning/            # Planning documents (locked)
+├── database/            # SQL scripts and migrations
+├── ingestion/           # Data scraping and ingestion
+│   └── src/
+│       ├── scrapers/    # Website scrapers
+│       └── parsers/     # Data parsers
+├── api/                 # API server
+│   └── src/
+│       ├── routes/      # API routes
+│       └── controllers/ # Business logic
+└── frontend/            # Next.js application
+    ├── app/             # App Router pages
+    └── components/      # React components
+```
+
+### Database Setup
+1. Create PostgreSQL database
+2. Run SQL migration scripts
+3. Configure connection string
+4. Set up notification listeners
+
+### Data Ingestion Pipeline
+1. Configure scraper targets (chess-results.com URLs)
+2. Run ingestion scripts periodically
+3. Validate and transform data
+4. Insert into database
+5. Trigger notifications
+
+## Technical Constraints
+
+### Database Constraints
+- No created_at/updated_at in most tables (except debugging)
+- No PGN notation in MVP
+- No exact game start/end times
+- Ratings updated only after tournament completion
+
+### Data Source Constraints
+- chess-results.com is the primary data source
+- Russian Chess Federation website for ratings
+- No official API - requires web scraping
+- Data availability varies by tournament
+
+### Performance Considerations
+- Standings calculated from game results (not pre-computed)
+- Rating history stored for trend analysis
+- Snapshots created after each round for historical standings
+- pg_notify for real-time updates to connected clients
+
+## Dependencies
+
+### Python Dependencies (Ingestion)
+- requests - HTTP requests
+- beautifulsoup4 - HTML parsing
+- playwright - Dynamic content loading
+- psycopg2 or asyncpg - PostgreSQL connection
+- python-dotenv - Environment configuration
+
+### JavaScript Dependencies (Frontend)
+- next - Next.js framework
+- react - UI library
+- react-dom - React DOM renderer
+- pg - PostgreSQL client
+- zod - Schema validation
+
+## Build and Deployment
+
+### Development
+```bash
+# Start database
+docker-compose up -d postgres
+
+# Run ingestion
+cd ingestion && python -m src.scrapers.tournament_scraper
+
+# Start API
+cd api && npm run dev
+
+# Start frontend
+cd frontend && npm run dev
+```
+
+### Production
+- Database: PostgreSQL on cloud provider or dedicated server
+- API: Node.js server with PM2 or similar
+- Frontend: Next.js with static export or server deployment
+- Ingestion: Scheduled cron jobs or CI/CD pipeline
+
+## Testing Strategy
+
+### Unit Tests
+- Data parsing logic
+- Validation rules
+- API endpoint handlers
+
+### Integration Tests
+- Database operations
+- Data ingestion pipeline
+- API integration
+
+### E2E Tests
+- Frontend user flows
+- Data display accuracy
+- Real-time updates
+
+## Monitoring and Logging
+
+### Database Monitoring
+- Query performance
+- Connection pool status
+- Replication lag (if applicable)
+
+### Application Monitoring
+- API response times
+- Error rates
+- Data ingestion success/failure
+
+### Logging
+- Structured JSON logs
+- Error tracking (Sentry or similar)
+- Database query logging
