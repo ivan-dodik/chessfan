@@ -1,6 +1,6 @@
 # Changes Log
 
-## 2026-05-10 - Database Deployment Script
+## 2026-05-10 00:53 - Database Deployment Script
 
 ### Summary
 Added deployment script for automated PostgreSQL container startup, database initialization, and verification.
@@ -86,7 +86,7 @@ docker-compose exec postgres psql -U chessfan -d chessfan
 4. Build data ingestion pipeline
 5. Implement API endpoints
 
-## 2026-05-10 - Root README.md Update
+## 2026-05-10 01:20 - Root README.md Update
 
 ### Summary
 Updated root README.md with comprehensive project overview and quick start guide.
@@ -103,7 +103,7 @@ Updated root README.md with comprehensive project overview and quick start guide
 ### Files Updated
 - `README.md` - Comprehensive project overview
 
-## 2026-05-10 - Scraper Development
+## 2026-05-10 02:46 - Scraper Development
 
 ### Summary
 Created Python scraper for parsing chess tournament data from chess-results.com and ruchess.ru.
@@ -139,7 +139,7 @@ Created Python scraper for parsing chess tournament data from chess-results.com 
 - Player profile parser (chess-results): working
 - Player profile parser (ruchess): working (name, ID, gender, region, birth year, all rating types, 5 tournaments)
 
-## 2026-05-10 - Scraper Data Obfuscation
+## 2026-05-10 03:08 - Scraper Data Obfuscation
 
 ### Summary
 Replaced real player names and birth dates with fictional data to protect privacy while maintaining scraper functionality and data consistency.
@@ -160,7 +160,7 @@ Replaced real player names and birth dates with fictional data to protect privac
 - `docs/scraper/ruchess_format.md`
 - `scraper/src/ruchess_parser.py` (removed original name from comment)
 
-## 2026-05-10 - Milestone 1: Database Ready
+## 2026-05-10 03:09 - Milestone 1: Database Ready
 
 ### Summary
 Completed database deployment, sample data loading, and pg_notify functionality verification.
@@ -196,3 +196,54 @@ Completed database deployment, sample data loading, and pg_notify functionality 
 
 ### Next Priority
 Connect scraper to database (Phase 2: Data Ingestion)
+
+## 2026-05-10 03:24 - Memory Bank Optimization
+
+### Summary
+Optimized Memory Bank structure to reduce context footprint and improve documentation organization. Updated .clinerules/update_prompts.md with improved structure.
+
+### Changes Made
+
+#### Files Updated
+- `.clinerules/update_prompts.md` - Improved structure with heading and "why" explanations
+- `memory-bank/projectbrief.md` - Reduced to concise overview
+- `memory-bank/productContext.md` - Reduced to concise overview
+- `memory-bank/activeContext.md` - Reduced to current state only
+- `memory-bank/systemPatterns.md` - Simplified architecture diagrams
+- `memory-bank/techContext.md` - Reduced to essential info
+- `memory-bank/progress.md` - Reduced to summary
+- `README.md` - Added Memory Bank section and updated project structure
+
+#### Files Created
+- `memory-bank/database-details.md` - Detailed database schema
+- `memory-bank/scraper-details.md` - Scraper architecture and parsers
+- `memory-bank/deployment-details.md` - Deployment procedures
+- `memory-bank/changelog.md` - Project changelog
+
+### Result
+- Reduced Memory Bank context by ~50-60%
+- `planning/` already blocked from scanning via .clineignore
+- `CHANGES.md` and `PROMPTS.md` remain unchanged (appended only)
+- Clear separation between concise overview and detailed information
+
+## 2026-05-10 04:05 - Update Prompts and Changes Files
+
+### Summary
+Updated .clinerules/update_prompts.md with timestamp requirements and new entry addition rules. Added current changes to CHANGES.md.
+
+### Changes Made
+
+#### Files Updated
+- `.clinerules/update_prompts.md` - Added timestamp format (YYYY-MM-DD HH:MM) and rules for adding new entries (always at end of file)
+- `CHANGES.md` - Added timestamp to all entries and inverted timestamps for chronological order
+
+#### Format Rules
+- Даты и времени изменения (формат: YYYY-MM-DD HH:MM)
+- Описания изменений
+- Созданных/обновленных файлов
+- Формат: хронологический порядок записей (новые снизу, в конце файла)
+
+#### New Entry Rules
+- Новые записи добавляются в **конец файла** (внизу)
+- Временные метки увеличиваются по мере добавления новых записей
+- Не добавляйте записи в начало файла

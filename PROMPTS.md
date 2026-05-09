@@ -327,3 +327,62 @@ Database Status:
 - pg_notify functionality verified
 
 Next Priority: Connect scraper to database (Phase 2: Data Ingestion)
+
+## 2026-05-10 - Memory Bank Optimization
+
+Prompt to agent in plan mode:
+
+```text
+Есть рекомендации по использованию memory bank:
+
+```
+Reducing Your Context Footprint
+Memory Bank works best when your starting context is lean. If Cline loads your entire project into context, including dependencies, build artifacts, and generated files, you burn through tokens before the real work starts.
+Add a .clineignore file. This is the single biggest improvement most users can make. It tells Cline which files to skip when scanning your project. Adding one can drop your starting context from 200k+ tokens to under 50k, which means faster responses, lower costs, and the ability to use smaller models effectively.
+Keep Memory Bank files concise. Each file adds to your context when Cline reads it at the start of a session. Keep projectbrief.md to one page, activeContext.md to current state only (not a running log), and progress.md to a summary rather than a detailed changelog. If a file grows beyond a page or two, split the detail into a separate doc and link to it. Cline can read linked files on demand.
+Use Cline Rules strategically. Rules load into every request. Use conditional rules to activate rules only when working with matching files, so frontend rules don't load when you're editing backend code.
+```
+
+Просмотри инструкции в текущем проекте и файлы memory bank (а также .clineignore). Оцени, можно ли что-то улучшить и если да, то составь план по улучшению.
+```
+
+Prompt to agent in act mode (follow-up):
+
+```text
+Проверь также файлы правил в .clinerules/ дополни план, если нужно что-то в них поменять. Каталог planning/ должен быть заблокирован от сканирования. CHANGES.md и PROMPTS.md можно оставить без изменений, т.к. они по идее не должны каждый раз подключаться в контекст, а только дополняться новыми промптами и изменениями.
+```
+
+Prompt to agent in act mode (follow-up):
+
+```text
+'.clinerules/update_prompts.md' (see below for file content) посмотрi, можно ли улучшить правило в соответствии с рекомендациями Cline - https://docs.cline.bot/customization/cline-rules#writing-effective-rules
+```
+
+Prompt to agent in act mode (follow-up):
+
+```text
+'.clinerules/update_prompts.md' (see below for file content) Обнови файлы промптов и изменений.
+```
+
+Changes made:
+- Updated `.clinerules/update_prompts.md` with improved structure:
+  - Added heading `# Правила документирования проекта`
+  - Added "why" explanation for each file
+  - Improved Markdown formatting
+- Updated `memory-bank/projectbrief.md` - reduced to concise overview
+- Updated `memory-bank/productContext.md` - reduced to concise overview
+- Updated `memory-bank/activeContext.md` - reduced to current state only
+- Updated `memory-bank/systemPatterns.md` - simplified architecture diagrams
+- Updated `memory-bank/techContext.md` - reduced to essential info
+- Updated `memory-bank/progress.md` - reduced to summary
+- Created `memory-bank/database-details.md` - detailed database schema
+- Created `memory-bank/scraper-details.md` - scraper architecture and parsers
+- Created `memory-bank/deployment-details.md` - deployment procedures
+- Created `memory-bank/changelog.md` - project changelog
+- Updated `README.md` with Memory Bank section and updated project structure
+
+Result:
+- Reduced Memory Bank context by ~50-60%
+- `planning/` already blocked from scanning via .clineignore
+- `CHANGES.md` and `PROMPTS.md` remain unchanged (appended only)
+- Clear separation between concise overview and detailed information

@@ -43,6 +43,10 @@ chessfan/
 │   ├── systemPatterns.md  # Architecture and patterns
 │   ├── techContext.md     # Technology stack
 │   └── progress.md        # Project progress
+│   ├── database-details.md    # Detailed database schema
+│   ├── scraper-details.md     # Scraper architecture and parsers
+│   ├── deployment-details.md  # Deployment procedures
+│   └── changelog.md           # Project changelog
 ├── docs/
 │   ├── db/                # Database documentation
 │   │   ├── README.md      # Database setup guide
@@ -52,7 +56,7 @@ chessfan/
 │       ├── docker.md      # Docker deployment
 │       └── verify.md      # Verification guide
 ├── planning/              # Planning documents (locked)
-└── ingestion/             # Data scraping and ingestion (future)
+└── scraper/               # Data scraping and ingestion
 ```
 
 ## Documentation
@@ -64,6 +68,26 @@ chessfan/
 | Database Verification | [docs/deployment/verify.md](docs/deployment/verify.md) |
 | Database Schema | [docs/db/schema.md](docs/db/schema.md) |
 | Views & Triggers | [docs/db/views.md](docs/db/views.md), [docs/db/triggers.md](docs/db/triggers.md) |
+
+## Memory Bank
+
+The project uses a Memory Bank system to maintain project documentation across sessions:
+
+### Core Files (Required)
+- **[projectbrief.md](memory-bank/projectbrief.md)** - Project overview and requirements
+- **[productContext.md](memory-bank/productContext.md)** - Product goals and user experience
+- **[activeContext.md](memory-bank/activeContext.md)** - Current work status and next steps
+- **[systemPatterns.md](memory-bank/systemPatterns.md)** - Architecture and design patterns
+- **[techContext.md](memory-bank/techContext.md)** - Technology stack and setup
+- **[progress.md](memory-bank/progress.md)** - Project progress and milestones
+
+### Additional Context
+- **[database-details.md](memory-bank/database-details.md)** - Detailed database schema
+- **[scraper-details.md](memory-bank/scraper-details.md)** - Scraper architecture and parsers
+- **[deployment-details.md](memory-bank/deployment-details.md)** - Deployment procedures
+- **[changelog.md](memory-bank/changelog.md)** - Project changelog
+
+See the [Memory Bank documentation](https://docs.cline.bot/memory-bank) for more information.
 
 ## Database Schema
 
