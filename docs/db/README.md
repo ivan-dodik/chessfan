@@ -16,12 +16,34 @@ docs/db/
 └── triggers.md        # Triggers and notifications documentation
 
 docs/deployment/
-└── docker.md          # Docker deployment guide
+├── docker.md          # Docker deployment guide
+├── verify.md          # Database verification guide
+└── deploy.sh          # Deployment script (in project root)
 ```
 
 ## Quick Start
 
-### Option 1: Using Docker (Recommended)
+### Option 1: Automated Deployment (Recommended)
+
+Use the deployment script for automated setup:
+
+```bash
+# Make script executable
+chmod +x deploy.sh
+
+# Run deployment
+./deploy.sh
+```
+
+The script will:
+1. Start PostgreSQL container
+2. Wait for database to be ready
+3. Create database structure
+4. Verify all tables, views, and triggers
+
+See [Deployment Verification](../deployment/verify.md) for verification details.
+
+### Option 2: Using Docker Compose (Manual)
 
 1. Ensure Docker and Docker Compose are installed
 
@@ -37,7 +59,7 @@ docker-compose exec postgres psql -U chessfan -d chessfan -c "\dt"
 
 See [Docker Deployment Guide](../deployment/docker.md) for more details.
 
-### Option 2: Local PostgreSQL Installation
+### Option 3: Local PostgreSQL Installation
 
 1. Prerequisites:
    - PostgreSQL 13+
