@@ -127,6 +127,27 @@ Changes made:
 - Created CHANGES.md with changelog
 ```
 
+## Database Deployment Script
+
+Prompt to agent in act mode:
+
+```text
+Напиши скрипт для деплоя, который будет поднимать контейнер, проверять, что Постгрес поднялся, создавать в нём структуру БД и проверять, что всё готово к приёму данных (таблицы и остальные структуры созданы).
+
+Как обычно обновляй PROMPTS.md и CHANGES.md Документацию на скрипт (скрипты?) создай в docs/deployment. Сам скрипт - в корне проекта.
+```
+
+Changes made:
+- Created `deploy.sh` - main deployment script in project root
+- Script starts PostgreSQL container using Docker Compose
+- Script waits for PostgreSQL to be ready using pg_isready
+- Script creates database structure from docs/db/sql/create.sql
+- Script verifies all tables, views, and triggers exist
+- Created `docs/deployment/verify.md` - comprehensive verification guide
+- Updated `docs/db/README.md` to reference deployment script
+- Updated `CHANGES.md` with deployment script entry
+- Updated `PROMPTS.md` with this history
+
 ## Docker Compose for PostgreSQL
 
 Prompt to agent in plan mode:
@@ -166,3 +187,19 @@ Changes made:
 - Updated CHANGES.md with Docker Compose entry
 - Updated PROMPTS.md with this history
 ```
+
+## Root README.md Update
+
+Prompt to agent in act mode:
+
+```text
+Обнови README.md в корне. Опиши кратко проект, основные шаги по его запуску, основные каталоги, ссылки на более подробную документацию. Избегай дублирования информации с уже существующими файлами.
+```
+
+Changes made:
+- Updated root `README.md` with comprehensive project overview
+- Added quick start section with deployment instructions
+- Documented project structure with key directories
+- Added documentation table with links to detailed guides
+- Included database schema summary
+- Listed next steps with links to future documentation
