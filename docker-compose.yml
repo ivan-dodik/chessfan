@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: chessfan-postgres
+    environment:
+      POSTGRES_DB: chessfan
+      POSTGRES_USER: chessfan
+      POSTGRES_PASSWORD: chessfan123
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./docs/db/sql/create.sql:/docker-entrypoint-initdb.d/init.sql
+    restart: unless-stopped
+
+volumes:
+  postgres_data:

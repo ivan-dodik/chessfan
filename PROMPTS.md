@@ -114,3 +114,55 @@ SQL-скрипт должен создавать:
 - 1 функцию и триггер для pg_notify при изменении результатов партий
 
 Все идентификаторы в snake_case. PostgreSQL 13+.
+```
+
+Changes made:
+- Created docs/db/ directory structure
+- Created docs/db/README.md with installation instructions
+- Created docs/db/schema.md with database schema description
+- Created docs/db/sql/create.sql with complete SQL script
+- Created docs/db/views.md with views documentation
+- Created docs/db/triggers.md with triggers and notifications documentation
+- Updated PROMPTS.md with history
+- Created CHANGES.md with changelog
+```
+
+## Docker Compose for PostgreSQL
+
+Prompt to agent in plan mode:
+
+```text
+Подготовь файл Docker Compose для подъёма сервера PostgreSQL на котором будет работать база данных проекта.
+
+Следуй свои указаниям по об更新лению файлов с промптами и изменениями. Документацию создай в docs/deployment
+```
+
+Prompt to agent in act mode:
+
+```text
+Создай Docker Compose конфигурацию для PostgreSQL и обнови документацию.
+
+Требования:
+1. Создать docker-compose.yml для PostgreSQL 15
+2. Создать .env.example с примерами переменных
+3. Создать docs/deployment/docker.md с инструкциями по развертыванию
+4. Обновить docs/db/README.md для упоминания Docker-подхода
+5. Обновить CHANGES.md с записью о Docker Compose
+6. Обновить PROMPTS.md с историей промптов
+
+Конфигурация должна включать:
+- PostgreSQL 15
+- База данных: chessfan
+- Пользователь: chessfan
+- Автоматическая инициализация через docs/db/sql/create.sql
+- Постоянное хранилище данных
+```
+
+Changes made:
+- Created docker-compose.yml with PostgreSQL 15 configuration
+- Created .env.example with environment variables
+- Created docs/deployment/docker.md with comprehensive Docker deployment guide
+- Updated docs/db/README.md to include Docker quick start option
+- Updated CHANGES.md with Docker Compose entry
+- Updated PROMPTS.md with this history
+```

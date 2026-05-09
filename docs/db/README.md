@@ -14,28 +14,46 @@ docs/db/
 │   └── create.sql     # SQL script to create the database
 ├── views.md           # Database views documentation
 └── triggers.md        # Triggers and notifications documentation
+
+docs/deployment/
+└── docker.md          # Docker deployment guide
 ```
 
 ## Quick Start
 
-### Prerequisites
+### Option 1: Using Docker (Recommended)
 
-- PostgreSQL 13+
-- psql client
+1. Ensure Docker and Docker Compose are installed
 
-### Installation
+2. Start PostgreSQL with:
+```bash
+docker-compose up -d
+```
 
-1. Create a new database:
+3. Verify the database:
+```bash
+docker-compose exec postgres psql -U chessfan -d chessfan -c "\dt"
+```
+
+See [Docker Deployment Guide](../deployment/docker.md) for more details.
+
+### Option 2: Local PostgreSQL Installation
+
+1. Prerequisites:
+   - PostgreSQL 13+
+   - psql client
+
+2. Create a new database:
 ```bash
 createdb chessfan
 ```
 
-2. Run the SQL script:
+3. Run the SQL script:
 ```bash
 psql -h localhost -U postgres -d chessfan -f docs/db/sql/create.sql
 ```
 
-3. Verify installation:
+4. Verify installation:
 ```bash
 psql -h localhost -U postgres -d chessfan -c "\dt"
 ```
