@@ -74,7 +74,13 @@ chessfan/
 ### Database Setup (Automated)
 1. Run `./deploy.sh` to start PostgreSQL and create database structure
 2. Script automatically waits for readiness and verifies all components
-3. Connect via `PGPASSWORD=chessfan123 psql -h localhost -U chessfan -d chessfan`
+3. Connect via `PGPASSWORD=chessfan123 psql -h localhost -p 5432 -U chessfan -d chessfan`
+
+### Current Database Status
+- PostgreSQL running in Docker container (chessfan-postgres)
+- Sample data loaded: 5 players, 1 tournament, 10 games, 10 ratings, 15 standings
+- pg_notify functionality verified
+- Connection: `PGPASSWORD=chessfan123 psql -h localhost -p 5432 -U chessfan -d chessfan`
 
 ### Database Setup (Docker Compose - Manual)
 1. Copy `.env.example` to `.env` and customize if needed

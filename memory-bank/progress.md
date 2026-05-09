@@ -9,6 +9,7 @@
 - Database schema fully designed with 6 tables, 11 indexes, 3 views, and 1 trigger
 - Complete documentation in docs/db/ directory
 - SQL script ready for deployment (docs/db/sql/create.sql)
+- Sample data script (docs/db/sql/sample_data.sql)
 - Docker Compose configuration for PostgreSQL 15
 - Docker deployment documentation in docs/deployment/
 - Automated deployment script (deploy.sh) for PostgreSQL
@@ -22,6 +23,9 @@
 - CLI interface for running parsers
 - Comprehensive documentation in docs/scraper/
 - All player data obfuscated in samples for privacy
+- Database deployed and running in Docker container
+- Sample data loaded (5 players, 1 tournament, 10 games, 10 ratings, 15 standings)
+- pg_notify functionality verified for real-time game result notifications
 
 ### What's Left to Build
 
@@ -29,9 +33,9 @@
 - [x] Design and finalize PostgreSQL schema
 - [x] Create database migration scripts
 - [x] Deploy PostgreSQL database (Docker Compose)
-- [ ] Create initial database connection
-- [ ] Load sample data for testing
-- [ ] Verify pg_notify functionality
+- [x] Create initial database connection
+- [x] Load sample data for testing
+- [x] Verify pg_notify functionality
 
 #### Phase 2: Data Ingestion (In Progress)
 - [x] Build web scraper for chess-results.com
@@ -114,15 +118,21 @@
   - Maintained data consistency across all files
   - Verified scraper still works with obfuscated data
   - Updated PROMPTS.md and CHANGES.md per .clinerules/update_prompts.md
+- **Completed Milestone 1: Database Ready** (May 10, 2026)
+  - Deployed PostgreSQL database using deploy.sh script
+  - Created sample data script (docs/db/sql/sample_data.sql) with 5 players, 1 tournament, 10 games
+  - Added unique constraints to tables for proper upsert operations
+  - Verified pg_notify functionality with trigger on games table
+  - Updated progress.md to reflect completed milestones
 
 ## Upcoming Milestones
 
-### Milestone 1: Database Ready
+### Milestone 1: Database Ready - COMPLETE
 - [x] Complete database schema design
 - [x] Create and test migration scripts
-- [ ] Deploy database to PostgreSQL server
-- [ ] Load sample data for testing
-- [ ] Verify pg_notify functionality
+- [x] Deploy database to PostgreSQL server
+- [x] Load sample data for testing
+- [x] Verify pg_notify functionality
 
 ### Milestone 2: Ingestion Working
 - [x] Build web scraper for chess-results.com
@@ -151,7 +161,9 @@
 - Scraper parsers implemented: 5/5
 - API endpoints defined: 0/10
 - Frontend pages created: 0/5
-- Data ingested: 0 tournaments
+- Data ingested: 1 tournament (sample data)
+- Players in database: 5
+- Games in database: 10
 
 ## Blockers
 - None currently
@@ -160,4 +172,5 @@
 - Database schema complete and documented
 - Scraper developed and tested on real HTML files
 - All player data obfuscated in samples for privacy
-- Next priority: Deploy database and connect scraper to it
+- Milestone 1: Database Ready - COMPLETE
+- Next priority: Connect scraper to database (Phase 2)

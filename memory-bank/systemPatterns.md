@@ -170,6 +170,12 @@
 - Verifies all tables, views, and triggers exist
 - Documentation: `docs/deployment/verify.md`
 
+### Current Database Status
+- PostgreSQL running in Docker container (chessfan-postgres)
+- Sample data loaded: 5 players, 1 tournament, 10 games, 10 ratings, 15 standings
+- pg_notify functionality verified
+- Connection: `PGPASSWORD=chessfan123 psql -h localhost -p 5432 -U chessfan -d chessfan`
+
 ### Database Setup (Local)
 - PostgreSQL 13+
 - Database name: `chessfan`
