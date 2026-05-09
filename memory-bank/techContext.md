@@ -29,6 +29,7 @@
 - **Docker** - Containerization
 - **Docker Compose** - Multi-container orchestration (PostgreSQL)
 - **Git** - Version control (GitHub)
+- **Bash** - Deployment scripts
 
 ## Development Setup
 
@@ -41,16 +42,22 @@
 ### Project Structure
 ```
 chessfan/
-├── memory-bank/          # Project documentation
+├── deploy.sh            # Automated deployment script
+├── docker-compose.yml   # PostgreSQL configuration
+├── .env.example         # Environment variables template
+├── memory-bank/         # Project documentation
 ├── planning/            # Planning documents (locked)
 ├── docs/                # Documentation
-│   └── db/              # Database documentation
-│       ├── README.md    # Database setup guide
-│       ├── schema.md    # Database schema
-│       ├── views.md     # Database views
-│       ├── triggers.md  # Triggers and notifications
-│       └── sql/         # SQL scripts
-│           └── create.sql
+│   ├── db/              # Database documentation
+│   │   ├── README.md    # Database setup guide
+│   │   ├── schema.md    # Database schema
+│   │   ├── views.md     # Database views
+│   │   ├── triggers.md  # Triggers and notifications
+│   │   └── sql/         # SQL scripts
+│   │       └── create.sql
+│   └── deployment/      # Deployment documentation
+│       ├── docker.md    # Docker deployment guide
+│       └── verify.md    # Verification guide
 ├── ingestion/           # Data scraping and ingestion
 │   └── src/
 │       ├── scrapers/    # Website scrapers
@@ -64,7 +71,12 @@ chessfan/
     └── components/      # React components
 ```
 
-### Database Setup (Docker)
+### Database Setup (Automated)
+1. Run `./deploy.sh` to start PostgreSQL and create database structure
+2. Script automatically waits for readiness and verifies all components
+3. Connect via `PGPASSWORD=chessfan123 psql -h localhost -U chessfan -d chessfan`
+
+### Database Setup (Docker Compose - Manual)
 1. Copy `.env.example` to `.env` and customize if needed
 2. Run `docker-compose up -d` to start PostgreSQL
 3. Database auto-initializes with `docs/db/sql/create.sql`

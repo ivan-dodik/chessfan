@@ -162,6 +162,14 @@
 - Data volume: `postgres_data`
 - Auto-initialization: `docs/db/sql/create.sql`
 
+### Automated Deployment
+- Script: `deploy.sh` in project root
+- Starts PostgreSQL container via Docker Compose
+- Waits for database readiness using pg_isready
+- Creates database structure from SQL script
+- Verifies all tables, views, and triggers exist
+- Documentation: `docs/deployment/verify.md`
+
 ### Database Setup (Local)
 - PostgreSQL 13+
 - Database name: `chessfan`

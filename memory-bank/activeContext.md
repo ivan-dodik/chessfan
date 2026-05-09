@@ -21,6 +21,16 @@ The database schema for Chessfan MVP has been fully designed and documented. Doc
   - Created docs/deployment/docker.md with deployment guide
   - Updated docs/db/README.md with Docker quick start
   - Updated PROMPTS.md and CHANGES.md
+- **Completed deployment script** (May 10, 2026)
+  - Created deploy.sh for automated PostgreSQL deployment
+  - Script starts container, waits for readiness, creates DB structure, verifies everything
+  - Created docs/deployment/verify.md for verification guide
+  - Updated root README.md with project overview
+  - Updated PROMPTS.md and CHANGES.md
+- **Fixed deployment script issues** (May 10, 2026)
+  - Replaced docker-compose with docker compose (new CLI plugin syntax)
+  - Updated check_prerequisites() to check for docker compose plugin
+  - Fixed create_database_structure() to skip if tables already exist (idempotent)
 
 ## Next Steps
 1. **Database Deployment** (Priority)
