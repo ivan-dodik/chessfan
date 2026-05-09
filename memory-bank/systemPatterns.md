@@ -153,10 +153,34 @@
 
 ## Configuration
 
-### Database Setup
+### Database Setup (Docker)
+- PostgreSQL 15 (via Docker Compose)
+- Database name: `chessfan`
+- Username: `chessfan`
+- Password: `chessfan123`
+- Port: `5432`
+- Data volume: `postgres_data`
+- Auto-initialization: `docs/db/sql/create.sql`
+
+### Database Setup (Local)
 - PostgreSQL 13+
 - Database name: `chessfan`
 - User: postgres (or custom user)
+
+### Docker Quick Start
+```bash
+# Start PostgreSQL
+docker-compose up -d
+
+# Stop PostgreSQL
+docker-compose down
+
+# View logs
+docker-compose logs -f postgres
+
+# Connect to database
+docker-compose exec postgres psql -U chessfan -d chessfan
+```
 
 ### Notification Setup
 - Channel: `game_result_changes`

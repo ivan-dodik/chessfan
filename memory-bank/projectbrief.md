@@ -38,6 +38,7 @@ Chessfan is a chess tournaments and player stats monitoring service. The project
 
 ## Current Status
 **Database Implementation Complete** - Database schema designed and documented in docs/db/ directory.
+**Docker Deployment Ready** - PostgreSQL configured via Docker Compose.
 
 ## Files
 - docs/db/README.md - Database setup guide
@@ -45,3 +46,6 @@ Chessfan is a chess tournaments and player stats monitoring service. The project
 - docs/db/sql/create.sql - SQL script to create database
 - docs/db/views.md - Database views documentation
 - docs/db/triggers.md - Triggers and notifications documentation
+- docs/deployment/docker.md - Docker deployment guide
+- docker-compose.yml - Docker Compose configuration
+- .env.example - Environment variables example

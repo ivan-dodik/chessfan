@@ -1,9 +1,9 @@
 # Active Context: Chessfan
 
 ## Current Status
-**Project Phase**: Database Implementation Complete
+**Project Phase**: Database Deployment Ready
 
-The database schema for Chessfan MVP has been fully designed and documented. All documentation is in the `docs/db/` directory.
+The database schema for Chessfan MVP has been fully designed and documented. Docker Compose configuration is ready for PostgreSQL deployment.
 
 ## Recent Work
 - Created project brief and memory bank structure
@@ -15,10 +15,16 @@ The database schema for Chessfan MVP has been fully designed and documented. All
   - Created 3 views: v_active_tournament_table, v_player_profile, v_player_rating_history
   - Created pg_notify trigger for live game result notifications
   - Documented in docs/db/ directory
+- **Completed Docker Compose configuration** (May 10, 2026)
+  - Created docker-compose.yml for PostgreSQL 15
+  - Created .env.example with environment variables
+  - Created docs/deployment/docker.md with deployment guide
+  - Updated docs/db/README.md with Docker quick start
+  - Updated PROMPTS.md and CHANGES.md
 
 ## Next Steps
 1. **Database Deployment** (Priority)
-   - Deploy database to PostgreSQL server
+   - Deploy database using Docker Compose
    - Load sample data for testing
    - Verify notifications with pg_notify
 

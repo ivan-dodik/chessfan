@@ -27,6 +27,7 @@
 
 ### Infrastructure
 - **Docker** - Containerization
+- **Docker Compose** - Multi-container orchestration (PostgreSQL)
 - **Git** - Version control (GitHub)
 
 ## Development Setup
@@ -63,7 +64,13 @@ chessfan/
     └── components/      # React components
 ```
 
-### Database Setup
+### Database Setup (Docker)
+1. Copy `.env.example` to `.env` and customize if needed
+2. Run `docker-compose up -d` to start PostgreSQL
+3. Database auto-initializes with `docs/db/sql/create.sql`
+4. Connect via `psql -h localhost -U chessfan -d chessfan`
+
+### Database Setup (Local)
 1. Create PostgreSQL database: `createdb chessfan`
 2. Run SQL migration scripts: `psql -f docs/db/sql/create.sql`
 3. Configure connection string
@@ -119,8 +126,8 @@ chessfan/
 
 ### Development
 ```bash
-# Start database
-docker-compose up -d postgres
+# Start database (Docker)
+docker-compose up -d
 
 # Run ingestion
 cd ingestion && python -m src.scrapers.tournament_scraper

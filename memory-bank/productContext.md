@@ -44,6 +44,12 @@ Chessfan provides a centralized platform for tracking chess players' performance
 - 3 views: v_active_tournament_table, v_player_profile, v_player_rating_history
 - pg_notify trigger for live game result notifications
 
+## Deployment
+- Docker Compose for PostgreSQL 15
+- Database auto-initializes on first run
+- Persistent volume for data storage
+- Environment variables for configuration
+
 ## Future Enhancements
 - PGN notation display
 - Game analysis tools
