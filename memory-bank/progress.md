@@ -3,7 +3,7 @@
 ## Current Status
 
 ### Project Phase
-**Database Deployment Ready** - Database schema designed and documented. Docker Compose configured for PostgreSQL.
+**Scraper Development Complete** - Database schema designed and documented. Docker Compose configured for PostgreSQL. Python scraper for chess-results.com and ruchess.ru developed and tested.
 
 ### What Works
 - Database schema fully designed with 6 tables, 11 indexes, 3 views, and 1 trigger
@@ -14,6 +14,14 @@
 - Automated deployment script (deploy.sh) for PostgreSQL
 - Database verification guide (docs/deployment/verify.md)
 - Root README.md with project overview
+- Python scraper for chess-results.com (tournament, round, player profile)
+- Python scraper for ruchess.ru (player profile, tournament)
+- HTML caching with MD5 hash keys
+- HTTP retry logic for failed requests
+- PostgreSQL integration with upsert operations
+- CLI interface for running parsers
+- Comprehensive documentation in docs/scraper/
+- All player data obfuscated in samples for privacy
 
 ### What's Left to Build
 
@@ -25,12 +33,13 @@
 - [ ] Load sample data for testing
 - [ ] Verify pg_notify functionality
 
-#### Phase 2: Data Ingestion
-- [ ] Build web scraper for chess-results.com
-- [ ] Implement data validation layer
-- [ ] Create data transformation pipeline
-- [ ] Set up ingestion scheduling
-- [ ] Test with sample tournaments
+#### Phase 2: Data Ingestion (In Progress)
+- [x] Build web scraper for chess-results.com
+- [x] Build web scraper for ruchess.ru
+- [x] Implement data validation layer
+- [ ] Connect scraper to database
+- [ ] Create automated ingestion pipeline
+- [ ] Test with real tournament data
 
 #### Phase 3: API Development
 - [ ] Set up API server (FastAPI or NestJS)
@@ -56,7 +65,9 @@
 - [ ] Implement search and filtering
 
 ## Known Issues
-- None yet (database schema complete)
+- Tournament info page (art=5) doesn't contain organizer data - only available on round page (art=2)
+- ruchess.ru rating history parsing from JavaScript needs improvement
+- No tests written yet for parsers
 
 ## Recent Changes
 - Created memory bank structure
@@ -85,6 +96,24 @@
   - Replaced docker-compose with docker compose (new CLI plugin syntax)
   - Updated check_prerequisites() to check for docker compose plugin
   - Fixed create_database_structure() to skip if tables already exist (idempotent)
+- **Completed scraper development** (May 10, 2026)
+  - Created scraper/ directory structure with modular architecture
+  - Implemented BaseParser, CacheManager, SessionManager in utils.py
+  - Implemented ChessResultsTournamentParser, ChessResultsRoundParser, ChessResultsPlayerParser
+  - Implemented RuChessPlayerParser, RuChessTournamentParser
+  - Created Database class for PostgreSQL integration
+  - Created main.py CLI interface for running parsers
+  - Created comprehensive documentation in docs/scraper/
+  - Tested all parsers on real HTML files
+- **Completed data obfuscation** (May 10, 2026)
+  - Replaced all real player names with fictional names in HTML samples (55 players)
+  - Replaced all real birth years with fictional years (shifted by -6 years)
+  - Updated documentation with obfuscated data
+  - Renamed HTML files to match obfuscated names
+  - Removed all references to original names from documentation and code
+  - Maintained data consistency across all files
+  - Verified scraper still works with obfuscated data
+  - Updated PROMPTS.md and CHANGES.md per .clinerules/update_prompts.md
 
 ## Upcoming Milestones
 
@@ -96,7 +125,9 @@
 - [ ] Verify pg_notify functionality
 
 ### Milestone 2: Ingestion Working
-- [ ] Successfully scrape tournament data
+- [x] Build web scraper for chess-results.com
+- [x] Build web scraper for ruchess.ru
+- [ ] Connect scraper to database
 - [ ] Validate and transform data
 - [ ] Store data in database
 - [ ] Verify data integrity
@@ -117,6 +148,7 @@
 - Database tables designed: 6/6
 - Database indexes created: 11/11
 - Database views created: 3/3
+- Scraper parsers implemented: 5/5
 - API endpoints defined: 0/10
 - Frontend pages created: 0/5
 - Data ingested: 0 tournaments
@@ -126,5 +158,6 @@
 
 ## Notes
 - Database schema complete and documented
-- Ready for deployment to PostgreSQL
-- Next priority: Deploy database and load sample data
+- Scraper developed and tested on real HTML files
+- All player data obfuscated in samples for privacy
+- Next priority: Deploy database and connect scraper to it

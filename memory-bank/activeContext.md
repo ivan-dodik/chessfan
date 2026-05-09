@@ -1,9 +1,9 @@
 # Active Context: Chessfan
 
 ## Current Status
-**Project Phase**: Database Deployment Ready
+**Project Phase**: Scraper Development Complete
 
-The database schema for Chessfan MVP has been fully designed and documented. Docker Compose configuration is ready for PostgreSQL deployment.
+The database schema for Chessfan MVP has been fully designed and documented. Docker Compose configuration is ready for PostgreSQL deployment. Python scraper for chess-results.com and ruchess.ru has been developed and tested.
 
 ## Recent Work
 - Created project brief and memory bank structure
@@ -31,6 +31,24 @@ The database schema for Chessfan MVP has been fully designed and documented. Doc
   - Replaced docker-compose with docker compose (new CLI plugin syntax)
   - Updated check_prerequisites() to check for docker compose plugin
   - Fixed create_database_structure() to skip if tables already exist (idempotent)
+- **Completed scraper development** (May 10, 2026)
+  - Created scraper/ directory structure with modular architecture
+  - Implemented BaseParser, CacheManager, SessionManager in utils.py
+  - Implemented ChessResultsTournamentParser, ChessResultsRoundParser, ChessResultsPlayerParser
+  - Implemented RuChessPlayerParser, RuChessTournamentParser
+  - Created Database class for PostgreSQL integration
+  - Created main.py CLI interface for running parsers
+  - Created comprehensive documentation in docs/scraper/
+  - Tested all parsers on real HTML files
+- **Completed data obfuscation** (May 10, 2026)
+  - Replaced all real player names with fictional names in HTML samples (55 players)
+  - Replaced all real birth years with fictional years (shifted by -6 years)
+  - Updated documentation with obfuscated data
+  - Renamed HTML files to match obfuscated names
+  - Removed all references to original names from documentation and code
+  - Maintained data consistency across all files
+  - Verified scraper still works with obfuscated data
+  - Updated PROMPTS.md and CHANGES.md per .clinerules/update_prompts.md
 
 ## Next Steps
 1. **Database Deployment** (Priority)
@@ -38,10 +56,11 @@ The database schema for Chessfan MVP has been fully designed and documented. Doc
    - Load sample data for testing
    - Verify notifications with pg_notify
 
-2. **Data Ingestion**
-   - Build scraper for chess-results.com
+2. **Data Ingestion Pipeline**
+   - Connect scraper to database
    - Implement data validation
-   - Create ingestion pipeline
+   - Create automated ingestion pipeline
+   - Test with real tournament data
 
 3. **API Development**
    - Design REST API endpoints
@@ -62,6 +81,10 @@ The database schema for Chessfan MVP has been fully designed and documented. Doc
 - rus_id instead of fide_id for Russian Federation ID
 - Single score field in games table (white's points only)
 - No federation column or tiebreak columns in MVP
+- Python with BeautifulSoup for HTML parsing
+- requests library for HTTP with retry logic
+- MD5 hash-based HTML caching
+- All player data obfuscated in samples for privacy
 
 ## Technical Considerations
 - Need to handle "bye" situations (player gets point without playing) - do NOT create game record
@@ -69,15 +92,20 @@ The database schema for Chessfan MVP has been fully designed and documented. Doc
 - Live notifications via pg_notify for game result changes
 - Support for player rating history on any given date
 - created_at only in tables critical for debugging
+- chess-results.com uses ASP.NET WebForms with __doPostBack
+- ruchess.ru uses Bootstrap with DevExpress charts
+- Rating history stored in JavaScript dataSource array
 
 ## Known Issues
-- None yet (database schema complete)
+- Tournament info page (art=5) doesn't contain organizer data - only available on round page (art=2)
+- ruchess.ru rating history parsing from JavaScript needs improvement
+- No tests written yet for parsers
 
 ## Upcoming Milestones
 - [x] Complete database schema design
 - [x] Create initial database setup scripts
+- [x] Build first data ingestion tool (scraper)
 - [ ] Deploy database to PostgreSQL server
 - [ ] Load sample data for testing
-- [ ] Build first data ingestion tool
 - [ ] Implement basic API endpoints
 - [ ] Set up frontend project structure
