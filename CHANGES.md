@@ -159,3 +159,40 @@ Replaced real player names and birth dates with fictional data to protect privac
 - `docs/scraper/chess_results_format.md`
 - `docs/scraper/ruchess_format.md`
 - `scraper/src/ruchess_parser.py` (removed original name from comment)
+
+## 2026-05-10 - Milestone 1: Database Ready
+
+### Summary
+Completed database deployment, sample data loading, and pg_notify functionality verification.
+
+### Files Created
+
+#### Scripts
+- `docs/db/sql/sample_data.sql` - Sample data script with test data:
+  - 5 players with fictional names
+  - 1 tournament
+  - 10 games across 3 rounds
+  - 10 player ratings
+  - 15 tournament standings records
+
+#### Database Constraints Added
+- `tournaments_name_start_date_end_date_key` - Unique constraint for tournaments
+- `player_ratings_player_id_rating_date_key` - Unique constraint for ratings
+- `games_tournament_round_white_black_key` - Unique constraint for games
+- `tournament_standings_tournament_player_round_key` - Unique constraint for standings
+
+### Files Updated
+- `memory-bank/progress.md` - Updated to reflect completed milestones
+- `PROMPTS.md` - Added Milestone 1 history
+- `CHANGES.md` - This entry
+
+### Database Status
+- PostgreSQL running in Docker container (chessfan-postgres)
+- Connection: `PGPASSWORD=chessfan123 psql -h localhost -p 5432 -U chessfan -d chessfan`
+- All 6 tables verified
+- All 3 views verified
+- pg_notify trigger verified
+- Sample data loaded and verified
+
+### Next Priority
+Connect scraper to database (Phase 2: Data Ingestion)

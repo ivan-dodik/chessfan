@@ -286,3 +286,44 @@ Prompt to agent in act mode:
 - Сохранить структуру данных и консистентность
 - Не менять ID и другие технические данные
 ```
+
+## 2026-05-10 - Milestone 1: Database Ready
+
+Prompt to agent in act mode:
+
+```text
+В файле memory-bank/progress.md остались невыполненные пункты в разделе `### Milestone 1: Database Ready`.
+Скрипт для деплоя `deploy.sh` уже готов. Докер композ файл тоже. Составь план по подготовке оставшихся действий, которые позволят закрыть эти майлстоуны.
+
+После этого выполни план:
+1. Запусти deploy.sh для развертывания базы данных
+2. Создай скрипт с примерами данных для тестирования
+3. Загрузи примеры данных в базу
+4. Проверь работоспособность pg_notify
+
+Сохрани историю промптов в файл PROMPTS.md
+Сохрани историю изменений в файл CHANGES.md
+```
+
+Changes made:
+- Ran `deploy.sh` script which started PostgreSQL container
+- Verified all database structures (6 tables, 3 views, 1 trigger)
+- Created `docs/db/sql/sample_data.sql` with sample data
+- Loaded 5 players, 1 tournament, 10 games, 10 ratings, 15 standings records
+- Added unique constraints to tables for proper upsert operations:
+  - `tournaments_name_start_date_end_date_key`
+  - `player_ratings_player_id_rating_date_key`
+  - `games_tournament_round_white_black_key`
+  - `tournament_standings_tournament_player_round_key`
+- Verified pg_notify functionality with trigger on games table
+- Updated `memory-bank/progress.md` to reflect completed milestones
+- Updated `PROMPTS.md` with this history
+- Updated `CHANGES.md` with changelog entry
+
+Database Status:
+- PostgreSQL running in Docker container (chessfan-postgres)
+- Connection: `PGPASSWORD=chessfan123 psql -h localhost -p 5432 -U chessfan -d chessfan`
+- Sample data loaded and verified
+- pg_notify functionality verified
+
+Next Priority: Connect scraper to database (Phase 2: Data Ingestion)
